@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Crush Adventure - 本地演示</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #1A102F;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            color: #8A4FFF;
+            margin-bottom: 20px;
+        }
+        .game-preview {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .game-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .controls {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .controls h3 {
+            color: #8A4FFF;
+            margin-top: 0;
+        }
+        .btn {
+            background-color: #8A4FFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #BB86FC;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Candy Crush Adventure</h1>
+        <img src="../images/Vortex 9.jpeg" alt="Candy Crush Adventure" class="game-preview">
+        <div class="game-description">
+            <p>Candy Crush Adventure是一款令人愉快的三消益智游戏，你可以交换彩色糖果来创建匹配并完成具有挑战性的关卡。结合特殊糖果可以产生强大的效果，能够一次清除整行或一次爆炸大片区域！</p>
+            <p>有数百个独特的关卡，每个关卡都会引入新的障碍物和目标，你永远不会缺少甜蜜的挑战。收集星星，解锁新世界，与朋友竞争看谁能获得最高分！</p>
+        </div>
+        <div class="controls">
+            <h3>控制方式：</h3>
+            <p>点击并拖动来交换糖果</p>
+            <p>在移动设备上滑动来交换糖果</p>
+        </div>
+        <button class="btn" onclick="window.parent.location.href='../index.html'">返回首页</button>
+    </div>
+</body>
+</html> 

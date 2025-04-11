@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rope Rescue - 本地演示</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #1A102F;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            color: #8A4FFF;
+            margin-bottom: 20px;
+        }
+        .game-preview {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .game-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .controls {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .controls h3 {
+            color: #8A4FFF;
+            margin-top: 0;
+        }
+        .btn {
+            background-color: #8A4FFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #BB86FC;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Rope Rescue</h1>
+        <img src="../images/CubeCraft Merge  Battle.jpeg" alt="Rope Rescue" class="game-preview">
+        <div class="game-description">
+            <p>Rope Rescue是一款基于物理的挑战性益智游戏，你必须在适当的时候切断绳子以解救被困的角色。每一关都需要创造性思维和精确的时机才能解决谜题。</p>
+        </div>
+        <div class="controls">
+            <h3>控制方式：</h3>
+            <p>点击切断绳子</p>
+        </div>
+        <button class="btn" onclick="window.parent.location.href='../index.html'">返回首页</button>
+    </div>
+</body>
+</html> 

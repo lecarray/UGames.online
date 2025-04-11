@@ -1,0 +1,208 @@
+/* responsive.css - 响应式设计样式 */
+
+/* 大型桌面显示器 - 适用于 1440px 及以上宽度的屏幕 */
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  
+  .games-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .hero {
+    height: 500px;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    max-width: 650px;
+  }
+}
+
+/* 普通桌面显示器 - 适用于 1024px 到 1439px 宽度的屏幕 */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .category-section .games-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .hero {
+    height: 450px;
+  }
+}
+
+/* 平板电脑 - 适用于 768px 到 1023px 宽度的屏幕 */
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .category-section .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero {
+    height: 400px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+    max-width: 500px;
+  }
+  
+  .progress-sections {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .category-filters-container {
+    justify-content: flex-start;
+  }
+}
+
+/* 平板电脑和大型手机 - 适用于 640px 到 767px 宽度的屏幕 */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .navbar {
+    padding: 0.75rem 0;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .category-section .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero {
+    height: 350px;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .progress-sections {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .footer-column {
+    width: 100%;
+  }
+  
+  .challenge-action {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .players-completed {
+    margin-top: 0.5rem;
+  }
+}
+
+/* 移动设备 - 适用于 480px 及以下宽度的屏幕 */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .category-section .games-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero {
+    height: 300px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  
+  .hero-meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .category-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .category-tag {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .today-badge {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .badge-icon {
+    margin-bottom: 0.75rem;
+  }
+} 

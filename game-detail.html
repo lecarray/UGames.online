@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Warriors - UGames</title>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <!-- 网站图标 -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Space Warriors is an exciting action game where you explore the unknown universe, battle alien creatures, and become a galactic hero.">
+    <style>
+        /* 语言选择下拉菜单样式 */
+        .lang-selector {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: none;
+            z-index: 150;
+            min-width: 120px;
+        }
+        
+        .lang-dropdown.active {
+            display: block;
+        }
+        
+        .lang-option {
+            padding: var(--spacing-sm) var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: background-color 0.3s ease;
+        }
+        
+        .lang-option:hover {
+            background-color: var(--secondary-purple);
+        }
+        
+        .lang-flag {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* 游戏详情页的特定样式 */
+        .game-container {
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .game-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            margin-right: auto;
+            color: var(--light-grey);
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--accent-purple);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--light-grey);
+            background-color: var(--secondary-purple);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            transition: background-color 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background-color: var(--accent-purple);
+        }
+        
+        .game-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .game-main {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .game-sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .game-title {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .game-meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+            color: var(--light-grey);
+        }
+        
+        .game-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .game-meta-label {
+            color: var(--accent-purple);
+        }
+        
+        .game-frame-container {
+            width: 100%;
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .game-frame {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        
+        .game-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md);
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .control-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .control-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--light-grey);
+            transition: color 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            color: var(--accent-purple);
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .volume-slider {
+            width: 100px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .volume-level {
+            height: 100%;
+            width: 70%;
+            background-color: var(--accent-purple);
+            border-radius: 2px;
+        }
+        
+        .game-description {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .description-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--light-grey);
+        }
+        
+        .description-text {
+            line-height: 1.6;
+            color: var(--light-grey);
+            opacity: 0.9;
+        }
+        
+        .game-achievements {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .achievement-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: var(--main-purple);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            transition: transform 0.3s ease;
+        }
+        
+        .achievement-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+            color: var(--accent-pink);
+        }
+        
+        .achievement-title {
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .achievement-desc {
+            font-size: 0.8rem;
+            color: var(--light-grey);
+            opacity: 0.8;
+        }
+        
+        .locked .achievement-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .locked .achievement-title,
+        .locked .achievement-desc {
+            opacity: 0.5;
+        }
+        
+        .game-comments {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .comment-form {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .comment-input {
+            flex: 1;
+            padding: var(--spacing-md);
+            background-color: var(--main-purple);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-md);
+            color: var(--light-grey);
+        }
+        
+        .comment-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .comment-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .comment-item {
+            padding: var(--spacing-md);
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-md);
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .commenter {
+            font-weight: bold;
+        }
+        
+        .comment-time {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        .comment-text {
+            line-height: 1.5;
+        }
+        
+        .sidebar-block {
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .sidebar-title {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .game-stats {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .stat-label {
+            opacity: 0.8;
+        }
+        
+        .stat-value {
+            font-weight: bold;
+        }
+        
+        .player-review {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .review-score {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent-purple);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .review-stars {
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent-pink);
+        }
+        
+        .review-count {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .similar-games-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+        
+        .similar-game {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            transition: background-color 0.3s ease;
+        }
+        
+        .similar-game:hover {
+            background-color: var(--secondary-purple);
+        }
+        
+        .similar-thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+        }
+        
+        .similar-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .similar-info {
+            flex: 1;
+        }
+        
+        .similar-title {
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .similar-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+        
+        .similar-category {
+            color: var(--accent-purple);
+        }
+        
+        .similar-rating {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">UGames</a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#" class="nav-link">Action</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Adventure</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Strategy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">RPG</a></li>
+                </ul>
+                
+                <div class="nav-right">
+                    <div class="lang-selector">
+                        <a href="#" class="nav-link" id="langToggle"><i class="fas fa-globe"></i></a>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <div class="lang-option" data-lang="en">
+                                <img src="https://flagcdn.com/w20/us.png" alt="English" class="lang-flag">
+                                <span>English</span>
+                            </div>
+                            <div class="lang-option" data-lang="zh">
+                                <img src="https://flagcdn.com/w20/cn.png" alt="中文" class="lang-flag">
+                                <span>中文</span>
+                            </div>
+                            <div class="lang-option" data-lang="ja">
+                                <img src="https://flagcdn.com/w20/jp.png" alt="日本語" class="lang-flag">
+                                <span>日本語</span>
+                            </div>
+                            <div class="lang-option" data-lang="ko">
+                                <img src="https://flagcdn.com/w20/kr.png" alt="한국어" class="lang-flag">
+                                <span>한국어</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-link"><i class="fas fa-search"></i></a>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-user"></i> Login
+                    </a>
+                </div>
+
+                <!-- 汉堡菜单图标 (仅在移动设备上显示) -->
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="game-container">
+            <!-- 游戏标题区域 -->
+            <div class="game-header">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Games
+                </a>
+                <div class="action-buttons">
+                    <a href="#" class="action-btn">
+                        <i class="far fa-heart"></i> Favorite
+                    </a>
+                    <a href="#" class="action-btn">
+                        <i class="fas fa-share-alt"></i> Share
+                    </a>
+                </div>
+            </div>
+
+            <div class="game-details">
+                <!-- 主要内容区域 -->
+                <div class="game-main">
+                    <h1 class="game-title">Space Warriors</h1>
+                    <div class="game-meta-info">
+                        <div class="game-meta-item">
+                            <span class="game-meta-label">Developer:</span>
+                            <span>StarLight Games</span>
+                        </div>
+                        <div class="game-meta-item">
+                            <span class="game-meta-label">Category:</span>
+                            <span>Action</span>
+                        </div>
+                        <div class="game-meta-item">
+                            <span class="game-meta-label">Release Date:</span>
+                            <span>2023-03-15</span>
+                        </div>
+                    </div>
+
+                    <!-- 游戏嵌入区域 -->
+                    <div class="game-frame-container">
+                        <iframe class="game-frame" src="games/space-warriors.html" allowfullscreen></iframe>
+                        <div class="game-controls">
+                            <div class="control-buttons">
+                                <a href="#" class="control-btn">
+                                    <i class="fas fa-expand"></i> Fullscreen
+                                </a>
+                                <a href="#" class="control-btn">
+                                    <i class="fas fa-redo"></i> Restart
+                                </a>
+                            </div>
+                            <div class="volume-control">
+                                <i class="fas fa-volume-up"></i>
+                                <div class="volume-slider">
+                                    <div class="volume-level"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 游戏描述 -->
+                    <div class="game-description">
+                        <h2 class="description-title">Game Description</h2>
+                        <div class="description-text">
+                            <p>Space Warriors is an exciting space action game where players take on the role of brave space warriors exploring the unknown universe, battling alien creatures, and defending the future of humanity.</p>
+                            <p>In the game, you will face various challenges and missions, from simple reconnaissance missions to complex planetary defense battles. As the game progresses, you can unlock more powerful weapons and equipment, upgrade your spaceship, and become a true galactic hero.</p>
+                            <p>Key features:</p>
+                            <ul>
+                                <li>Rich and diverse mission system</li>
+                                <li>Beautiful space environments and visual effects</li>
+                                <li>Upgradable weapons and equipment system</li>
+                                <li>Challenge various powerful alien creatures</li>
+                                <li>Complete achievement system</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 成就系统 -->
+                    <div class="game-achievements">
+                        <h2 class="description-title">Achievements</h2>
+                        <div class="achievements-grid">
+                            <!-- 成就1 -->
+                            <div class="achievement-item">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h3 class="achievement-title">First Launch</h3>
+                                <p class="achievement-desc">Complete the first mission</p>
+                            </div>
+
+                            <!-- 成就2 -->
+                            <div class="achievement-item">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-meteor"></i>
+                                </div>
+                                <h3 class="achievement-title">Meteor Hunter</h3>
+                                <p class="achievement-desc">Destroy 100 meteors</p>
+                            </div>
+
+                            <!-- 成就3 -->
+                            <div class="achievement-item">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-user-astronaut"></i>
+                                </div>
+                                <h3 class="achievement-title">Space Rescue</h3>
+                                <p class="achievement-desc">Rescue 10 astronauts</p>
+                            </div>
+
+                            <!-- 成就4 -->
+                            <div class="achievement-item locked">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-question"></i>
+                                </div>
+                                <h3 class="achievement-title">Locked</h3>
+                                <p class="achievement-desc">Keep exploring to unlock more</p>
+                            </div>
+
+                            <!-- 成就5 -->
+                            <div class="achievement-item locked">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-question"></i>
+                                </div>
+                                <h3 class="achievement-title">Locked</h3>
+                                <p class="achievement-desc">Keep exploring to unlock more</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 评论区 -->
+                    <div class="game-comments">
+                        <h2 class="description-title">Player Comments (32)</h2>
+                        <div class="comment-form">
+                            <input type="text" class="comment-input" placeholder="Say something...">
+                            <button class="btn btn-primary">Post</button>
+                        </div>
+                        <div class="comment-list">
+                            <!-- 评论1 -->
+                            <div class="comment-item">
+                                <div class="comment-header">
+                                    <span class="commenter">SpaceFan</span>
+                                    <span class="comment-time">5 minutes ago</span>
+                                </div>
+                                <p class="comment-text">This game is so much fun, especially the design of level 3 which is very challenging. Love it!</p>
+                            </div>
+
+                            <!-- 评论2 -->
+                            <div class="comment-item">
+                                <div class="comment-header">
+                                    <span class="commenter">GalaxyTraveler</span>
+                                    <span class="comment-time">1 hour ago</span>
+                                </div>
+                                <p class="comment-text">The weapon system is very rich. As you level up, you can get more and more powerful equipment. Super satisfying! Looking forward to the next update.</p>
+                            </div>
+
+                            <!-- 评论3 -->
+                            <div class="comment-item">
+                                <div class="comment-header">
+                                    <span class="commenter">StarExplorer</span>
+                                    <span class="comment-time">3 hours ago</span>
+                                </div>
+                                <p class="comment-text">The graphics are very beautiful and the controls are smooth. Suitable for players who like space themes. However, the difficulty of the last level is a bit high. Hope to add some hints.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 侧边栏 -->
+                <div class="game-sidebar">
+                    <!-- 游戏数据 -->
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Game Stats</h3>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Plays</span>
+                                <span class="stat-value">234,567</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Favorites</span>
+                                <span class="stat-value">18,293</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Comments</span>
+                                <span class="stat-value">5,421</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Ranking</span>
+                                <span class="stat-value">3rd Place</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 玩家评分 -->
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Player Rating</h3>
+                        <div class="player-review">
+                            <div class="review-score">4.7</div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="review-count">Based on 8,745 player ratings</div>
+                        </div>
+                    </div>
+
+                    <!-- 类似游戏 -->
+                    <div class="sidebar-block">
+                        <h3 class="sidebar-title">Similar Games</h3>
+                        <div class="similar-games-grid">
+                            <!-- 类似游戏1 -->
+                            <a href="#" class="similar-game">
+                                <div class="similar-thumbnail">
+                                    <img src="images/action-game1.jpg" alt="Star Warrior">
+                                </div>
+                                <div class="similar-info">
+                                    <h4 class="similar-title">Star Warrior</h4>
+                                    <div class="similar-meta">
+                                        <span class="similar-category">Action</span>
+                                        <span class="similar-rating">
+                                            <i class="fas fa-star"></i> 4.2
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- 类似游戏2 -->
+                            <a href="#" class="similar-game">
+                                <div class="similar-thumbnail">
+                                    <img src="images/action-game2.jpg" alt="Mech Warrior">
+                                </div>
+                                <div class="similar-info">
+                                    <h4 class="similar-title">Mech Warrior</h4>
+                                    <div class="similar-meta">
+                                        <span class="similar-category">Action</span>
+                                        <span class="similar-rating">
+                                            <i class="fas fa-star"></i> 4.4
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- 类似游戏3 -->
+                            <a href="#" class="similar-game">
+                                <div class="similar-thumbnail">
+                                    <img src="images/multiplayer-game3.jpg" alt="Space Explorer">
+                                </div>
+                                <div class="similar-info">
+                                    <h4 class="similar-title">Space Explorer</h4>
+                                    <div class="similar-meta">
+                                        <span class="similar-category">Multiplayer</span>
+                                        <span class="similar-rating">
+                                            <i class="fas fa-star"></i> 4.4
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- 类似游戏4 -->
+                            <a href="#" class="similar-game">
+                                <div class="similar-thumbnail">
+                                    <img src="images/dragons-quest.jpg" alt="Dragon's Quest">
+                                </div>
+                                <div class="similar-info">
+                                    <h4 class="similar-title">Dragon's Quest</h4>
+                                    <div class="similar-meta">
+                                        <span class="similar-category">RPG</span>
+                                        <span class="similar-rating">
+                                            <i class="fas fa-star"></i> 4.5
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">UGames</h3>
+                    <p>The best online gaming platform, featuring a diverse collection of exciting games for your entertainment.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Game Categories</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Action Games</a>
+                        <a href="#" class="footer-link">Adventure Games</a>
+                        <a href="#" class="footer-link">Strategy Games</a>
+                        <a href="#" class="footer-link">RPG Games</a>
+                        <a href="#" class="footer-link">Puzzle Games</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Help</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">FAQ</a>
+                        <a href="#" class="footer-link">Contact Us</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 UGames. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript文件 -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

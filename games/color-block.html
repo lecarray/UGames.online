@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Block - 本地演示</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #1A102F;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            color: #8A4FFF;
+            margin-bottom: 20px;
+        }
+        .game-preview {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .game-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .controls {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .controls h3 {
+            color: #8A4FFF;
+            margin-top: 0;
+        }
+        .btn {
+            background-color: #8A4FFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #BB86FC;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Color Block</h1>
+        <img src="../images/Cups - Water Sort Puzzle.jpeg" alt="Color Block" class="game-preview">
+        <div class="game-description">
+            <p>Color Block是一款令人上瘾的益智游戏，挑战你的颜色匹配技能。安排相同颜色的方块使它们消失并获得分数。一次性消除越多的方块，你的分数就越高！</p>
+        </div>
+        <div class="controls">
+            <h3>控制方式：</h3>
+            <p>点击并拖动匹配颜色</p>
+        </div>
+        <button class="btn" onclick="window.parent.location.href='../index.html'">返回首页</button>
+    </div>
+</body>
+</html> 

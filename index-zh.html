@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGames - 游戏合集网站</title>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <!-- 网站图标 -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="一个汇集各种精彩游戏的在线游戏平台，提供多种类型的游戏让你尽情体验。">
+    <style>
+        /* 语言选择下拉菜单样式 */
+        .lang-selector {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: none;
+            z-index: 150;
+            min-width: 120px;
+        }
+        
+        .lang-dropdown.active {
+            display: block;
+        }
+        
+        .lang-option {
+            padding: var(--spacing-sm) var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: background-color 0.3s ease;
+        }
+        
+        .lang-option:hover {
+            background-color: var(--secondary-purple);
+        }
+        
+        .lang-flag {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index-zh.html" class="logo">UGames</a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#" class="nav-link">动作</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">冒险</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">策略</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">RPG</a></li>
+                </ul>
+                
+                <div class="nav-right">
+                    <div class="lang-selector">
+                        <a href="#" class="nav-link" id="langToggle"><i class="fas fa-globe"></i></a>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <div class="lang-option" data-lang="en">
+                                <img src="https://flagcdn.com/w20/us.png" alt="English" class="lang-flag">
+                                <span>English</span>
+                            </div>
+                            <div class="lang-option" data-lang="zh">
+                                <img src="https://flagcdn.com/w20/cn.png" alt="中文" class="lang-flag">
+                                <span>中文</span>
+                            </div>
+                            <div class="lang-option" data-lang="ja">
+                                <img src="https://flagcdn.com/w20/jp.png" alt="日本語" class="lang-flag">
+                                <span>日本語</span>
+                            </div>
+                            <div class="lang-option" data-lang="ko">
+                                <img src="https://flagcdn.com/w20/kr.png" alt="한국어" class="lang-flag">
+                                <span>한국어</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-link"><i class="fas fa-search"></i></a>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-user"></i> 登录
+                    </a>
+                </div>
+
+                <!-- 汉堡菜单图标 (仅在移动设备上显示) -->
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <img src="images/screw-out.jpg" alt="Screw Out: Bolts and Nuts" class="hero-img">
+            <div class="hero-content">
+                <h1 class="hero-title">螺丝撬出：螺栓与螺母</h1>
+                <div class="hero-meta">
+                    <span class="category-label">益智</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.7</span>
+                    </div>
+                </div>
+                <p class="hero-description">在这款引人入胜的游戏中挑战你的解谜能力，旋出螺丝并按颜色分类。</p>
+                <a href="screw-out-detail.html" class="btn btn-primary">开始游戏</a>
+            </div>
+        </section>
+    </div>
+
+    <main class="container">
+        <!-- 热门游戏区域 -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">热门游戏</h2>
+                <a href="#" class="view-more">
+                    查看更多
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="category-filters-container">
+                <div class="category-filters">
+                    <span class="category-tag active">全部</span>
+                    <span class="category-tag">益智</span>
+                </div>
+            </div>
+
+            <!-- 游戏卡片网格 -->
+            <div class="games-grid">
+                <!-- Screw Out: Bolts and Nuts -->
+                <div class="game-card">
+                    <div class="game-thumbnail">
+                        <img src="images/screw-out.jpg" alt="螺丝撬出：螺栓与螺母">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">螺丝撬出：螺栓与螺母</h3>
+                        <div class="game-meta">
+                            <span class="game-category">益智</span>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <a href="screw-out-detail.html" class="btn btn-primary play-now">开始游戏</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新游戏区域 -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">最新游戏</h2>
+                <a href="#" class="view-more">
+                    查看更多
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="games-grid">
+                <!-- Screw Out: Bolts and Nuts -->
+                <div class="game-card">
+                    <div class="game-thumbnail">
+                        <img src="images/screw-out.jpg" alt="螺丝撬出：螺栓与螺母">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">螺丝撬出：螺栓与螺母</h3>
+                        <div class="game-meta">
+                            <span class="game-category">益智</span>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        <a href="screw-out-detail.html" class="btn btn-primary play-now">开始游戏</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">UGames</h3>
+                    <p>最佳在线游戏平台，汇集各种精彩游戏，让您尽情体验游戏乐趣。</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">游戏分类</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">动作游戏</a>
+                        <a href="#" class="footer-link">冒险游戏</a>
+                        <a href="#" class="footer-link">策略游戏</a>
+                        <a href="#" class="footer-link">RPG游戏</a>
+                        <a href="#" class="footer-link">益智游戏</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">帮助</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">常见问题</a>
+                        <a href="#" class="footer-link">联系我们</a>
+                        <a href="#" class="footer-link">隐私政策</a>
+                        <a href="#" class="footer-link">服务条款</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">关注我们</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 GamePortal. 保留所有权利。
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript文件 -->
+    <script src="js/main.js"></script>
+    <script>
+        // 语言选择器功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const langToggle = document.getElementById('langToggle');
+            const langDropdown = document.getElementById('langDropdown');
+            const langOptions = document.querySelectorAll('.lang-option');
+            
+            // 点击语言图标显示/隐藏下拉菜单
+            langToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                langDropdown.classList.toggle('active');
+            });
+            
+            // 点击页面其他位置关闭下拉菜单
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.lang-selector')) {
+                    langDropdown.classList.remove('active');
+                }
+            });
+            
+            // 语言选择
+            langOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // 这里可以根据实际需要实现语言切换逻辑
+                    // 例如：重定向到特定语言版本的页面，或者动态加载语言包
+                    console.log('切换到语言:', lang);
+                    
+                    // 模拟语言切换，实际项目中需根据需求实现
+                    if (lang === 'zh') {
+                        window.location.href = 'index-zh.html'; // 中文版本页面
+                    } else if (lang === 'en') {
+                        window.location.href = 'index.html'; // 英文版本页面
+                    } else {
+                        // 其他语言...
+                        alert('切换到 ' + lang + ' 语言');
+                    }
+                    
+                    langDropdown.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slice Master - 本地演示</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #1A102F;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            color: #8A4FFF;
+            margin-bottom: 20px;
+        }
+        .game-preview {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .game-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .controls {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .controls h3 {
+            color: #8A4FFF;
+            margin-top: 0;
+        }
+        .btn {
+            background-color: #8A4FFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #BB86FC;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Slice Master</h1>
+        <img src="../images/MatchVentures.jpeg" alt="Slice Master" class="game-preview">
+        <div class="game-description">
+            <p>Slice Master是一款快节奏的切片游戏，你需要切割屏幕上飞过的各种物体。测试你的反应能力和精准度，切割水果、蔬菜和特殊奖励物品。小心不要切到炸弹！</p>
+        </div>
+        <div class="controls">
+            <h3>控制方式：</h3>
+            <p>滑动或拖动鼠标切割物体</p>
+        </div>
+        <button class="btn" onclick="window.parent.location.href='../index.html'">返回首页</button>
+    </div>
+</body>
+</html> 

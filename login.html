@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register - UGames</title>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <!-- 网站图标 -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Login or register for a UGames account to start your gaming adventure.">
+    <style>
+        /* 语言选择下拉菜单样式 */
+        .lang-selector {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: none;
+            z-index: 150;
+            min-width: 120px;
+        }
+        
+        .lang-dropdown.active {
+            display: block;
+        }
+        
+        .lang-option {
+            padding: var(--spacing-sm) var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: background-color 0.3s ease;
+        }
+        
+        .lang-option:hover {
+            background-color: var(--secondary-purple);
+        }
+        
+        .lang-flag {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* 图标元素精确定位 */
+        .circle-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #fff;
+        }
+        
+        .circle-icon:hover {
+            background-color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+        
+        /* 登录页面特定样式 */
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .auth-box {
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 460px;
+            overflow: hidden;
+        }
+        
+        .auth-tabs {
+            display: flex;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            padding: var(--spacing-md);
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+        
+        .auth-tab.active {
+            background-color: var(--secondary-purple);
+        }
+        
+        .auth-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-purple);
+        }
+        
+        .auth-content {
+            padding: var(--spacing-xl);
+        }
+        
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .form-label {
+            font-size: 0.9rem;
+            color: var(--light-grey);
+            opacity: 0.9;
+        }
+        
+        .form-input {
+            padding: var(--spacing-md);
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-md);
+            color: var(--light-grey);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 2px rgba(138, 79, 255, 0.3);
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-addon {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--light-grey);
+            opacity: 0.9;
+        }
+        
+        .forgot-password {
+            color: var(--accent-purple);
+            transition: color 0.3s ease;
+        }
+        
+        .forgot-password:hover {
+            color: var(--accent-pink);
+            text-decoration: underline;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: var(--spacing-md);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: var(--spacing-lg) 0;
+            color: var(--light-grey);
+            opacity: 0.6;
+        }
+        
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .divider-text {
+            padding: 0 var(--spacing-md);
+            font-size: 0.9rem;
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-purple);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            background-color: var(--accent-purple);
+            transform: translateY(-3px);
+        }
+        
+        .guest-login {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            font-size: 0.9rem;
+        }
+        
+        .guest-link {
+            color: var(--accent-purple);
+            transition: color 0.3s ease;
+        }
+        
+        .guest-link:hover {
+            color: var(--accent-pink);
+            text-decoration: underline;
+        }
+        
+        /* 默认隐藏注册表单 */
+        #register-form {
+            display: none;
+        }
+        
+        /* 当注册选项卡为活动状态时显示注册表单，隐藏登录表单 */
+        .auth-tab.active[data-tab="register"] ~ .auth-content #login-form {
+            display: none;
+        }
+        
+        .auth-tab.active[data-tab="register"] ~ .auth-content #register-form {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">UGames</a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#" class="nav-link">Action</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Adventure</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Strategy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">RPG</a></li>
+                </ul>
+                
+                <div class="nav-right">
+                    <div class="lang-selector">
+                        <a href="#" class="circle-icon language-toggle" id="langToggle">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <div class="lang-option" data-lang="zh">
+                                <img src="images/flag-cn.png" alt="中文" class="lang-flag">
+                                <span>中文</span>
+                            </div>
+                            <div class="lang-option" data-lang="en">
+                                <img src="images/flag-us.png" alt="English" class="lang-flag">
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="circle-icon search-icon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="auth-container">
+            <div class="auth-box">
+                <!-- 选项卡导航 -->
+                <div class="auth-tabs">
+                    <div class="auth-tab active" data-tab="login">Login</div>
+                    <div class="auth-tab" data-tab="register">Register</div>
+                </div>
+                
+                <!-- 认证内容区域 -->
+                <div class="auth-content">
+                    <!-- 登录表单 -->
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="login-email" class="form-label">Email</label>
+                            <input type="email" id="login-email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password" class="form-label">Password</label>
+                            <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required>
+                        </div>
+                        
+                        <div class="form-addon">
+                            <label class="remember-me">
+                                <input type="checkbox" checked> Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary submit-btn">Login</button>
+                        
+                        <div class="auth-divider">
+                            <span class="divider-line"></span>
+                            <span class="divider-text">Or login with</span>
+                            <span class="divider-line"></span>
+                        </div>
+                        
+                        <div class="social-login">
+                            <a href="#" class="social-btn" title="Login with WeChat">
+                                <i class="fab fa-weixin"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="Login with QQ">
+                                <i class="fab fa-qq"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="Login with Weibo">
+                                <i class="fab fa-weibo"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="guest-login">
+                            Not ready to register? <a href="index.html" class="guest-link">Continue as guest</a>
+                        </div>
+                    </form>
+                    
+                    <!-- 注册表单 -->
+                    <form id="register-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="register-username" class="form-label">Username</label>
+                            <input type="text" id="register-username" class="form-input" placeholder="Create your username" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-email" class="form-label">Email</label>
+                            <input type="email" id="register-email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password" class="form-label">Password</label>
+                            <input type="password" id="register-password" class="form-input" placeholder="Create your password" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password-confirm" class="form-label">Confirm Password</label>
+                            <input type="password" id="register-password-confirm" class="form-input" placeholder="Confirm your password" required>
+                        </div>
+                        
+                        <div class="form-addon">
+                            <label class="remember-me">
+                                <input type="checkbox" required> I agree to the <a href="#" class="forgot-password">Terms of Service</a> and <a href="#" class="forgot-password">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary submit-btn">Register</button>
+                        
+                        <div class="auth-divider">
+                            <span class="divider-line"></span>
+                            <span class="divider-text">Or register with</span>
+                            <span class="divider-line"></span>
+                        </div>
+                        
+                        <div class="social-login">
+                            <a href="#" class="social-btn" title="Register with WeChat">
+                                <i class="fab fa-weixin"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="Register with QQ">
+                                <i class="fab fa-qq"></i>
+                            </a>
+                            <a href="#" class="social-btn" title="Register with Weibo">
+                                <i class="fab fa-weibo"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="guest-login">
+                            Not ready to register? <a href="index.html" class="guest-link">Continue as guest</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">UGames</h3>
+                    <p>The best online gaming platform with a collection of exciting games for you to enjoy.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Game Categories</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Action Games</a>
+                        <a href="#" class="footer-link">Adventure Games</a>
+                        <a href="#" class="footer-link">Strategy Games</a>
+                        <a href="#" class="footer-link">RPG Games</a>
+                        <a href="#" class="footer-link">Puzzle Games</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Help</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">FAQ</a>
+                        <a href="#" class="footer-link">Contact Us</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 UGames. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript文件 -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

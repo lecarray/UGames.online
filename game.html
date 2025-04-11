@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play exciting games on UGames - your ultimate online gaming destination">
+    <title>Game Detail | UGames</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/game-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">UGames</a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link home-link"><i class="fas fa-home"></i> <span class="nav-text">Home</span></a></li>
+                    <li class="nav-item"><a href="category.html" class="nav-link category-link"><i class="fas fa-th-large"></i> <span class="nav-text">Categories</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link rankings-link"><i class="fas fa-trophy"></i> <span class="nav-text">Rankings</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link new-link"><i class="fas fa-star"></i> <span class="nav-text">New Games</span></a></li>
+                </ul>
+                
+                <div class="nav-right">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search games...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-user"></i>
+                        Login
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="game-detail-container">
+            <div class="game-header-wrapper">
+                <div class="game-top-meta">
+                    <span class="game-meta-category">Loading...</span>
+                    <span class="game-meta-rating"><i class="fas fa-star rating-star"></i>0.0</span>
+                </div>
+                <h1 class="game-title">Loading Game...</h1>
+            </div>
+            
+            <div class="game-meta">
+                <div class="game-meta-item">
+                    <span class="game-meta-label">Released:</span>
+                    <span class="game-release-date">Loading...</span>
+                </div>
+            </div>
+            
+            <div class="game-content">
+                <div class="game-main">
+                    <div class="game-container">
+                        <div class="loading-overlay">
+                            <div class="spinner"></div>
+                            <div class="loading-text">Loading game, please wait...</div>
+                        </div>
+                        <iframe src="about:blank" frameborder="0" class="game-iframe" allow="gamepad *;" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <div class="control-buttons">
+                            <button id="fullscreen-btn" class="fullscreen-btn"><i class="fas fa-expand"></i> Fullscreen</button>
+                            <button id="restart-btn" class="restart-btn"><i class="fas fa-redo-alt"></i> Restart</button>
+                        </div>
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up volume-icon"></i>
+                            <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="100">
+                            <span class="volume-value">100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-section">
+                        <div class="action-buttons">
+                            <button class="action-btn"><i class="fas fa-heart"></i> Favorite</button>
+                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
+                    </div>
+                    
+                    <div class="game-section">
+                        <h2 class="description-title">Game Description</h2>
+                        <p class="description-text">
+                            Loading game description...
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="game-sidebar">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Recommended Games</h3>
+                        <div class="similar-games-grid">
+                            <!-- 相似游戏将通过JS动态加载 -->
+                            <div class="loading-games">
+                                <div class="spinner small-spinner"></div>
+                                <p>Loading games...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Game Stats</h3>
+                        <div class="stat-list">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Plays</span>
+                                <span class="stat-value">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Favorites</span>
+                                <span class="stat-value">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Comments</span>
+                                <span class="stat-value">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Difficulty</span>
+                                <span class="stat-value">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Player Rating</h3>
+                        <div class="rating-display">
+                            <div class="rating-number">0.0</div>
+                            <div class="rating-stars">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="review-count">Based on 0 player ratings</div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Game Tags</h3>
+                        <div class="tag-container">
+                            <!-- 标签将通过JS动态加载 -->
+                            <span class="game-tag loading-tag">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Controls</h3>
+                        <ul class="control-list">
+                            <!-- 控制方式将通过JS动态加载 -->
+                            <li class="control-item loading-control">
+                                <div class="control-icon">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </div>
+                                <span>Loading controls...</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 简化的页脚 -->
+    <footer class="footer-simple">
+        <p>© 2023 UGames - All game rights belong to their respective developers</p>
+    </footer>
+
+    <!-- 修改脚本引入顺序 -->
+    <script src="js/games-data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/game-detail.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 从URL中获取游戏ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const gameId = urlParams.get('id');
+            
+            // 如果没有找到游戏ID，显示错误信息并返回
+            if (!gameId) {
+                document.querySelector('.game-container').innerHTML = `
+                    <div class="error-container">
+                        <h2>Loading Error</h2>
+                        <p>Game ID not specified. Please return to homepage and select a game.</p>
+                        <a href="index.html" class="btn btn-primary">Return to Home</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            try {
+                // 确保GameDatabase对象已正确加载
+                if (!window.GameDatabase || typeof window.GameDatabase.getGameById !== 'function') {
+                    throw new Error('Game database not properly loaded');
+                }
+                
+                // 获取游戏数据
+                const gameData = window.GameDatabase.getGameById(gameId);
+                
+                // 如果没有找到游戏数据，显示错误信息并返回
+                if (!gameData) {
+                    document.querySelector('.game-container').innerHTML = `
+                        <div class="error-container">
+                            <h2>Loading Error</h2>
+                            <p>Cannot find game with ID "${gameId}". The game may have been removed or the ID is invalid.</p>
+                            <a href="index.html" class="btn btn-primary">Return to Home</a>
+                        </div>
+                    `;
+                    console.error(`Cannot find game data for ID ${gameId}`);
+                    return;
+                }
+                
+                // 更新游戏标题
+                document.title = `${gameData.title} - UGames`;
+                document.querySelector('.game-title').textContent = gameData.title;
+                
+                // 更新游戏元数据
+                document.querySelector('.game-meta-category').textContent = gameData.category;
+                document.querySelector('.game-meta-rating').innerHTML = `<i class="fas fa-star rating-star"></i>${gameData.rating}`;
+                document.querySelector('.game-release-date').textContent = gameData.releaseDate || 'Unknown';
+                
+                // 设置游戏iframe
+                const gameFrame = document.querySelector('.game-iframe');
+                if (gameFrame) {
+                    // 使用本地游戏文件
+                    gameFrame.src = gameData.gameIframeUrl;
+                    
+                    // 添加iframe加载事件处理
+                    gameFrame.onload = function() {
+                        // 隐藏加载指示器
+                        document.querySelector('.loading-overlay').style.display = 'none';
+                    };
+                    
+                    // 添加iframe错误处理
+                    gameFrame.onerror = function() {
+                        showErrorMessage();
+                    };
+                    
+                    // 3秒超时检测
+                    setTimeout(function() {
+                        if (document.querySelector('.loading-overlay').style.display !== 'none') {
+                            showErrorMessage();
+                        }
+                    }, 3000);
+                    
+                    function showErrorMessage() {
+                        document.querySelector('.game-container').innerHTML = `
+                            <div class="error-container">
+                                <h2>Loading Error</h2>
+                                <p>Failed to load game. Please return to homepage and try another game.</p>
+                                <a href="index.html" class="btn btn-primary">Return to Home</a>
+                            </div>
+                        `;
+                    }
+                }
+                
+                // 更新游戏描述
+                const descriptionElement = document.querySelector('.description-text');
+                if (descriptionElement) {
+                    descriptionElement.innerHTML = gameData.description;
+                }
+                
+                // 更新游戏统计数据
+                const statItems = document.querySelectorAll('.stat-item');
+                if (statItems.length >= 4) {
+                    // 总游玩次数
+                    statItems[0].querySelector('.stat-value').textContent = gameData.totalPlays || '-';
+                    // 收藏数
+                    statItems[1].querySelector('.stat-value').textContent = gameData.favorites || '-';
+                    // 评论数
+                    statItems[2].querySelector('.stat-value').textContent = gameData.comments || '-';
+                    // 难度
+                    statItems[3].querySelector('.stat-value').textContent = gameData.difficulty || '-';
+                }
+                
+                // 更新玩家评分显示
+                const ratingNumber = document.querySelector('.rating-number');
+                if (ratingNumber) {
+                    ratingNumber.textContent = gameData.rating || '0.0';
+                }
+                
+                const reviewCount = document.querySelector('.review-count');
+                if (reviewCount) {
+                    reviewCount.textContent = `Based on ${gameData.playerRatings || '0'} player ratings`;
+                }
+                
+                // 更新评分星星
+                updateRatingStars(gameData.rating);
+                
+                // 更新控制方式
+                const controlList = document.querySelector('.control-list');
+                if (controlList) {
+                    controlList.innerHTML = '';
+                    
+                    if (gameData.controls && gameData.controls.length > 0) {
+                        gameData.controls.forEach(control => {
+                            const controlItem = document.createElement('li');
+                            controlItem.className = 'control-item';
+                            controlItem.innerHTML = `
+                                <div class="control-icon">
+                                    <i class="fas fa-${control.icon}"></i>
+                                </div>
+                                <span>${control.description}</span>
+                            `;
+                            controlList.appendChild(controlItem);
+                        });
+                    } else {
+                        controlList.innerHTML = `
+                            <li class="control-item">
+                                <div class="control-icon">
+                                    <i class="fas fa-question"></i>
+                                </div>
+                                <span>No special controls</span>
+                            </li>
+                        `;
+                    }
+                }
+                
+                // 更新标签
+                const tagContainer = document.querySelector('.tag-container');
+                if (tagContainer) {
+                    tagContainer.innerHTML = '';
+                    
+                    if (gameData.tags && gameData.tags.length > 0) {
+                        gameData.tags.forEach(tag => {
+                            const tagElement = document.createElement('span');
+                            tagElement.className = 'game-tag';
+                            tagElement.textContent = tag;
+                            tagContainer.appendChild(tagElement);
+                        });
+                    } else {
+                        tagContainer.innerHTML = '<span class="game-tag">No tags</span>';
+                    }
+                }
+                
+                // 加载推荐游戏
+                loadRecommendedGames(gameData.category, gameId);
+                
+            } catch (error) {
+                console.error('Error loading game:', error);
+                document.querySelector('.game-container').innerHTML = `
+                    <div class="error-container">
+                        <h2>Loading Error</h2>
+                        <p>Problem loading game data: ${error.message}</p>
+                        <a href="index.html" class="btn btn-primary">Return to Home</a>
+                    </div>
+                `;
+            }
+        });
+        
+        // 根据评分更新星星显示
+        function updateRatingStars(rating) {
+            const starsContainer = document.querySelector('.rating-stars');
+            if (!starsContainer) return;
+            
+            const numericRating = parseFloat(rating) || 0;
+            const fullStars = Math.floor(numericRating / 2);
+            const halfStar = numericRating % 2 >= 1;
+            
+            starsContainer.innerHTML = '';
+            
+            // 添加实心星星
+            for (let i = 0; i < fullStars; i++) {
+                starsContainer.innerHTML += '<i class="fas fa-star"></i>';
+            }
+            
+            // 添加半星（如果需要）
+            if (halfStar) {
+                starsContainer.innerHTML += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            // 添加空心星星
+            const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                starsContainer.innerHTML += '<i class="far fa-star"></i>';
+            }
+        }
+        
+        // 加载推荐游戏
+        function loadRecommendedGames(category, currentGameId) {
+            const similarGamesContainer = document.querySelector('.similar-games-grid');
+            if (!similarGamesContainer) return;
+            
+            try {
+                // 获取同类别游戏
+                let similarGames = window.GameDatabase.getGamesByCategory(category)
+                    .filter(game => game.id !== currentGameId)
+                    .slice(0, 1); // 只显示1个推荐游戏
+                
+                // 如果没有找到相似游戏，则显示评分最高的游戏（除了当前游戏）
+                if (similarGames.length === 0) {
+                    console.log('No similar games found, showing top rated game');
+                    similarGames = window.GameDatabase.getAllGames()
+                        .filter(game => game.id !== currentGameId)
+                        .sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
+                        .slice(0, 1);
+                }
+                
+                // 清空加载中的内容
+                similarGamesContainer.innerHTML = '';
+                
+                // 如果依然没有找到游戏（极少情况）
+                if (similarGames.length === 0) {
+                    similarGamesContainer.innerHTML = '<p class="no-games">No recommended games</p>';
+                    return;
+                }
+                
+                // 添加推荐游戏卡片
+                similarGames.forEach(game => {
+                    const gameCard = document.createElement('div');
+                    gameCard.className = 'similar-game-card';
+                    gameCard.innerHTML = `
+                        <a href="game.html?id=${game.id}" class="similar-game-link">
+                            <div class="similar-game-img">
+                                <img src="${game.thumbnailImage}" alt="${game.title}" onerror="this.src='images/1.jpg'">
+                            </div>
+                            <div class="similar-game-info">
+                                <h4 class="similar-game-title">${game.title}</h4>
+                                <div class="similar-game-meta">
+                                    <span>${game.category}</span>
+                                    <span><i class="fas fa-star"></i> ${game.rating}</span>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    similarGamesContainer.appendChild(gameCard);
+                });
+                
+            } catch (error) {
+                console.error('Error loading recommended games:', error);
+                similarGamesContainer.innerHTML = '<p class="error-text">Failed to load recommended games</p>';
+            }
+        }
+    </script>
+</body>
+</html> 

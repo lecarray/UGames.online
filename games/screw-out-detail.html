@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screw Out: Bolts and Nuts - UGames</title>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <!-- 网站图标 -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Screw Out: Bolts and Nuts是一款有趣的益智游戏，旋开各种颜色的螺丝，在有限的移动次数内完成挑战。">
+    <style>
+        /* 游戏详情页特定样式 */
+        .game-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg);
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 900px) {
+            .game-detail-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .game-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .game-title {
+            font-size: 2rem;
+            color: var(--accent-yellow);
+            margin: 0;
+        }
+        
+        .game-category {
+            background-color: var(--main-purple);
+            color: var(--text-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .game-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        .rating-value {
+            font-weight: bold;
+            color: var(--accent-yellow);
+        }
+        
+        .game-release {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+        
+        .game-content {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-iframe-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9比例 */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .game-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .game-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 10, 26, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+        }
+        
+        .game-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md);
+            background-color: rgba(15, 10, 26, 0.4);
+        }
+        
+        .control-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .control-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-light);
+            padding: 8px 12px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .control-button:hover {
+            background-color: var(--main-purple);
+        }
+        
+        .control-button.primary {
+            background-color: var(--accent-yellow);
+            color: var(--dark-bg);
+        }
+        
+        .control-button.primary:hover {
+            background-color: #ffd700;
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .volume-slider {
+            width: 100px;
+            height: 6px;
+            -webkit-appearance: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            outline: none;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--accent-yellow);
+            cursor: pointer;
+        }
+        
+        .game-description {
+            margin: var(--spacing-md) 0;
+            line-height: 1.6;
+        }
+        
+        /* 侧边栏样式 */
+        .game-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .sidebar-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--accent-yellow);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: var(--spacing-sm);
+        }
+        
+        .similar-games {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .similar-game-card {
+            display: flex;
+            gap: var(--spacing-sm);
+            background-color: rgba(15, 10, 26, 0.4);
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        
+        .similar-game-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .similar-game-image {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+        }
+        
+        .similar-game-info {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .similar-game-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        
+        .similar-game-category {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .rating-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .rating-stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .star {
+            color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .star.filled {
+            color: var(--accent-yellow);
+        }
+        
+        .rating-numbers {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .rating-count {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .stats-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .stats-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .stats-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            color: var(--text-muted);
+        }
+        
+        .stat-value {
+            font-weight: bold;
+        }
+        
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background-color: rgba(107, 72, 255, 0.2);
+            color: var(--text-light);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: background-color 0.2s;
+        }
+        
+        .tag:hover {
+            background-color: rgba(107, 72, 255, 0.4);
+        }
+        
+        .controls-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .controls-list li {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .controls-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .control-key {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+        
+        /* 简化的页脚 */
+        .simplified-footer {
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+        }
+        
+        /* 加载动画 */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--accent-yellow);
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GamePortal</span>
+            </a>
+            
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> 首页</a></li>
+                    <li class="nav-item"><a href="category.html" class="nav-link"><i class="fas fa-th-large"></i> 分类</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-trophy"></i> 徽章</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-star"></i> 收藏</a></li>
+                </ul>
+                
+                <div class="nav-auth">
+                    <a href="login.html" class="auth-link">登录</a>
+                    <a href="login.html" class="auth-button">注册</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 主要内容 -->
+    <main>
+        <div class="game-detail-container">
+            <!-- 游戏主要内容 -->
+            <div class="game-main">
+                <div class="game-header">
+                    <h1 class="game-title">Screw Out: Bolts and Nuts</h1>
+                    <span class="game-category">益智</span>
+                    <div class="game-rating">
+                        <i class="fas fa-star"></i>
+                        <span class="rating-value">8.8</span>
+                    </div>
+                    <span class="game-release">发布时间: 2025年3月</span>
+                </div>
+                
+                <div class="game-content">
+                    <div class="game-iframe-container">
+                        <!-- 游戏加载动画 -->
+                        <div class="game-loading" id="gameLoading">
+                            <div class="spinner"></div>
+                            <div class="loading-text">游戏加载中，请稍候...</div>
+                        </div>
+                        
+                        <!-- 嵌入游戏iframe -->
+                        <iframe id="gameFrame" src="games/screw-out.html" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <div class="control-buttons">
+                            <button class="control-button primary" id="playButton">
+                                <i class="fas fa-play"></i> 开始游戏
+                            </button>
+                            <button class="control-button" id="fullscreenButton">
+                                <i class="fas fa-expand"></i> 全屏
+                            </button>
+                            <button class="control-button" id="restartButton">
+                                <i class="fas fa-redo"></i> 重新开始
+                            </button>
+                        </div>
+                        
+                        <div class="volume-control">
+                            <i class="fas fa-volume-up" id="volumeIcon"></i>
+                            <input type="range" min="0" max="100" value="80" class="volume-slider" id="volumeSlider">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-description">
+                    <h2>游戏介绍</h2>
+                    <p>Screw Out: Bolts and Nuts是一款极具挑战性的益智游戏，玩家需要在有限的移动次数内旋出所有的螺丝钉。游戏看似简单，实则富含深度的策略思考。</p>
+                    <p>游戏规则：</p>
+                    <ul>
+                        <li><strong>按颜色分类</strong>：每个螺丝都有特定的颜色，你必须使用匹配颜色的工具来拧开它们。</li>
+                        <li><strong>有限的移动次数</strong>：每个关卡都有移动次数限制，你需要规划最佳路径。</li>
+                        <li><strong>递增的难度</strong>：随着游戏的深入，螺丝的配置会变得更加复杂，增加挑战性。</li>
+                        <li><strong>特殊螺丝</strong>：某些关卡包含特殊螺丝，需要特定的解锁方式。</li>
+                    </ul>
+                    <p>这款游戏非常适合喜欢动脑思考的玩家，它考验你的观察力、规划能力和空间想象力。每一关都是一个独特的挑战，随着你的进步，你将发现自己在策略性思考方面有显著提升。</p>
+                    <p>你能成功解开所有关卡的螺丝吗？挑战自我，成为真正的拆解大师！</p>
+                </div>
+            </div>
+            
+            <!-- 游戏侧边栏 -->
+            <div class="game-sidebar">
+                <!-- 推荐游戏 -->
+                <div class="sidebar-section">
+                    <h3 class="section-title">类似游戏</h3>
+                    <div class="similar-games">
+                        <a href="space-warriors-detail.html" class="similar-game-card">
+                            <img src="images/space-warriors.jpg" alt="Space Warriors" class="similar-game-image">
+                            <div class="similar-game-info">
+                                <div class="similar-game-title">Space Warriors</div>
+                                <div class="similar-game-category">射击</div>
+                            </div>
+                        </a>
+                        <a href="teacher-simulator-detail.html" class="similar-game-card">
+                            <img src="images/teacher-simulator.jpg" alt="Teacher Simulator" class="similar-game-image">
+                            <div class="similar-game-info">
+                                <div class="similar-game-title">Teacher Simulator</div>
+                                <div class="similar-game-category">模拟</div>
+                            </div>
+                        </a>
+                        <a href="#" class="similar-game-card">
+                            <img src="images/color-puzzle.jpg" alt="Color Puzzle" class="similar-game-image">
+                            <div class="similar-game-info">
+                                <div class="similar-game-title">Color Puzzle</div>
+                                <div class="similar-game-category">益智</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 游戏统计 -->
+                <div class="sidebar-section">
+                    <h3 class="section-title">游戏统计</h3>
+                    <ul class="stats-list">
+                        <li>
+                            <span class="stat-label">总游玩次数</span>
+                            <span class="stat-value">42,519</span>
+                        </li>
+                        <li>
+                            <span class="stat-label">收藏次数</span>
+                            <span class="stat-value">5,876</span>
+                        </li>
+                        <li>
+                            <span class="stat-label">评论数</span>
+                            <span class="stat-value">873</span>
+                        </li>
+                        <li>
+                            <span class="stat-label">难度</span>
+                            <span class="stat-value">中等</span>
+                        </li>
+                        <li>
+                            <span class="stat-label">平均通关时间</span>
+                            <span class="stat-value">45分钟</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 玩家评分 -->
+                <div class="sidebar-section">
+                    <h3 class="section-title">玩家评分</h3>
+                    <div class="rating-display">
+                        <div class="rating-stars">
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star star filled"></i>
+                            <i class="fas fa-star-half-alt star filled"></i>
+                        </div>
+                        <div class="rating-value">8.8/10</div>
+                        <div class="rating-numbers">
+                            <span class="rating-count">总评分数: 1,975</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 游戏标签 -->
+                <div class="sidebar-section">
+                    <h3 class="section-title">游戏标签</h3>
+                    <div class="tags-list">
+                        <span class="tag">益智</span>
+                        <span class="tag">解谜</span>
+                        <span class="tag">策略</span>
+                        <span class="tag">单人</span>
+                        <span class="tag">休闲</span>
+                        <span class="tag">物理</span>
+                    </div>
+                </div>
+                
+                <!-- 游戏控制 -->
+                <div class="sidebar-section">
+                    <h3 class="section-title">游戏控制</h3>
+                    <ul class="controls-list">
+                        <li>
+                            <span class="control-key">鼠标</span>
+                            <span>选择和旋转螺丝</span>
+                        </li>
+                        <li>
+                            <span class="control-key">R</span>
+                            <span>重置关卡</span>
+                        </li>
+                        <li>
+                            <span class="control-key">数字键</span>
+                            <span>切换工具颜色</span>
+                        </li>
+                        <li>
+                            <span class="control-key">ESC</span>
+                            <span>暂停游戏</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 简化页脚 -->
+    <footer class="simplified-footer">
+        <p>© 2025 GamePortal - 游戏合集网站</p>
+    </footer>
+
+    <script>
+        // 等待页面加载完成
+        document.addEventListener('DOMContentLoaded', function() {
+            // 模拟游戏加载
+            setTimeout(function() {
+                document.getElementById('gameLoading').style.display = 'none';
+            }, 2000);
+            
+            // 开始游戏按钮点击事件
+            document.getElementById('playButton').addEventListener('click', function() {
+                const gameFrame = document.getElementById('gameFrame');
+                // 向iframe发送消息，通知开始游戏
+                gameFrame.contentWindow.postMessage('startGame', '*');
+                
+                // 重新显示加载界面
+                document.getElementById('gameLoading').style.display = 'flex';
+                
+                // 模拟游戏开始加载完成
+                setTimeout(function() {
+                    document.getElementById('gameLoading').style.display = 'none';
+                }, 1500);
+            });
+            
+            // 全屏按钮点击事件
+            document.getElementById('fullscreenButton').addEventListener('click', function() {
+                const gameFrame = document.getElementById('gameFrame');
+                
+                if (gameFrame.requestFullscreen) {
+                    gameFrame.requestFullscreen();
+                } else if (gameFrame.mozRequestFullScreen) {
+                    gameFrame.mozRequestFullScreen();
+                } else if (gameFrame.webkitRequestFullscreen) {
+                    gameFrame.webkitRequestFullscreen();
+                } else if (gameFrame.msRequestFullscreen) {
+                    gameFrame.msRequestFullscreen();
+                }
+            });
+            
+            // 重新开始按钮点击事件
+            document.getElementById('restartButton').addEventListener('click', function() {
+                const gameFrame = document.getElementById('gameFrame');
+                // 向iframe发送消息，通知重新开始游戏
+                gameFrame.contentWindow.postMessage('restartGame', '*');
+                
+                // 显示加载界面
+                document.getElementById('gameLoading').style.display = 'flex';
+                
+                // 模拟游戏重新开始加载完成
+                setTimeout(function() {
+                    document.getElementById('gameLoading').style.display = 'none';
+                }, 1000);
+            });
+            
+            // 音量控制
+            const volumeSlider = document.getElementById('volumeSlider');
+            const volumeIcon = document.getElementById('volumeIcon');
+            
+            volumeSlider.addEventListener('input', function() {
+                const value = this.value;
+                
+                // 向iframe发送消息，通知调整音量
+                document.getElementById('gameFrame').contentWindow.postMessage({
+                    type: 'setVolume',
+                    value: value / 100
+                }, '*');
+                
+                // 更新音量图标
+                if (value == 0) {
+                    volumeIcon.className = 'fas fa-volume-mute';
+                } else if (value < 50) {
+                    volumeIcon.className = 'fas fa-volume-down';
+                } else {
+                    volumeIcon.className = 'fas fa-volume-up';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

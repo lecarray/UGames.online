@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGames - Game Collection Website</title>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <!-- 网站图标 -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- 字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="An online gaming platform featuring a collection of exciting games for you to enjoy.">
+    <style>
+        /* 语言选择下拉菜单样式 */
+        .lang-selector {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: none;
+            z-index: 150;
+            min-width: 120px;
+        }
+        
+        .lang-dropdown.active {
+            display: block;
+        }
+        
+        .lang-option {
+            padding: var(--spacing-sm) var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: background-color 0.3s ease;
+        }
+        
+        .lang-option:hover {
+            background-color: var(--secondary-purple);
+        }
+        
+        .lang-flag {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* 图标元素精确定位 */
+        .circle-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #fff;
+        }
+        
+        .circle-icon:hover {
+            background-color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+        
+        /* 额外调整以适配完整布局 */
+        body {
+            background-color: var(--bg-dark-purple);
+            color: var(--light-grey);
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        main {
+            min-height: calc(100vh - 60px - 300px); /* 考虑导航栏和页脚的高度 */
+        }
+        
+        .full-width-container {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .hero-wrapper {
+            padding: 0 var(--spacing-lg);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">UGames</a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="category.html" class="nav-link">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Popular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">New Games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Top Games</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-right">
+                    <div class="lang-selector">
+                        <a href="#" class="circle-icon language-toggle" id="langToggle">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <div class="lang-option" data-lang="zh">
+                                <img src="images/flag-cn.png" alt="中文" class="lang-flag">
+                                <span>中文</span>
+                            </div>
+                            <div class="lang-option" data-lang="en">
+                                <img src="images/flag-us.png" alt="English" class="lang-flag">
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="circle-icon search-icon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-user"></i>
+                        Login
+                    </a>
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 焦点游戏区域 -->
+    <div class="container">
+        <section class="hero-carousel">
+            <!-- 轮播图指示器 -->
+            <div class="carousel-indicators">
+                <!-- 轮播指示器点将由JavaScript动态添加 -->
+            </div>
+            
+            <!-- 轮播图内容 -->
+            <div class="carousel-container">
+                <!-- 轮播项将由JavaScript动态添加 -->
+                <div class="loading-carousel">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>正在加载轮播游戏...</p>
+                </div>
+            </div>
+            
+            <!-- 轮播控制按钮 -->
+            <button class="carousel-control carousel-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-control carousel-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </section>
+    </div>
+
+    <main class="container">
+        <!-- 热门游戏区域 -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Popular Games</h2>
+                <a href="#" class="view-more">
+                    View More
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="category-filters-container">
+                <div class="category-filters" id="categoryFilters">
+                    <!-- 分类标签将动态加载 -->
+                    <span class="category-tag active">All</span>
+                    <!-- 其他分类标签将通过JavaScript动态添加 -->
+                </div>
+            </div>
+
+            <!-- 游戏卡片网格 -->
+            <div class="games-grid">
+                <!-- 加载状态指示 -->
+                <div class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>正在加载游戏数据...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新游戏区域 -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">New Games</h2>
+                <a href="#" class="view-more">
+                    View More
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+
+            <div class="games-grid">
+                <!-- 加载状态指示 -->
+                <div class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>正在加载游戏数据...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 每周徽章挑战区域 -->
+        <section class="badge-challenge">
+            <div class="challenge-header">
+                <div class="trophy-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2 class="challenge-title">Weekly Badge Challenge</h2>
+            </div>
+
+            <div class="challenge-content">
+                <!-- 今日徽章信息 -->
+                <div class="today-badge">
+                    <div class="badge-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="badge-info">
+                        <h3 class="badge-name">Today's Badge: "Galaxy Explorer"</h3>
+                        <p class="badge-task">Complete the first level of Space Warriors to earn this special badge!</p>
+                    </div>
+                </div>
+                
+                <div class="challenge-action">
+                    <a href="game.html?id=teacher-simulator" class="btn btn-secondary">Start Challenge</a>
+                    <div class="players-completed">
+                        <i class="fas fa-users players-icon"></i> 1,234 players completed
+                    </div>
+                </div>
+
+                <!-- 周进度与排名 -->
+                <div class="progress-sections">
+                    <div class="progress-section">
+                        <h3>Weekly Progress</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                        <p>3/4 badges earned</p>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <h3>Reward Progress</h3>
+                        <p><i class="fas fa-award reward-icon"></i> 250 points until next reward</p>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <h3>Community Rank</h3>
+                        <p><i class="fas fa-medal community-icon"></i> Top 10% this week</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">UGames</div>
+                    <p class="description" data-lang-zh="一站式游戏平台，汇聚各类精彩游戏，随时随地享受游戏乐趣。" data-lang-en="A one-stop gaming platform with various exciting games for you to enjoy anytime, anywhere.">一站式游戏平台，汇聚各类精彩游戏，随时随地享受游戏乐趣。</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3 data-lang-zh="探索" data-lang-en="Explore">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li><a href="index.html" data-lang-zh="首页" data-lang-en="Home">Home</a></li>
+                        <li><a href="category.html" data-lang-zh="游戏分类" data-lang-en="Categories">Game Categories</a></li>
+                        <li><a href="#" data-lang-zh="热门游戏" data-lang-en="Popular Games">Popular Games</a></li>
+                        <li><a href="#" data-lang-zh="最新上线" data-lang-en="New Releases">New Releases</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3 data-lang-zh="关于" data-lang-en="About">About</h3>
+                    <ul class="footer-nav-list">
+                        <li><a href="#" data-lang-zh="关于我们" data-lang-en="About Us">About Us</a></li>
+                        <li><a href="#" data-lang-zh="联系我们" data-lang-en="Contact Us">Contact Us</a></li>
+                        <li><a href="#" data-lang-zh="使用条款" data-lang-en="Terms of Use">Terms of Use</a></li>
+                        <li><a href="#" data-lang-zh="隐私政策" data-lang-en="Privacy Policy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-nav">
+                    <h3 data-lang-zh="支持" data-lang-en="Support">Support</h3>
+                    <ul class="footer-nav-list">
+                        <li><a href="#" data-lang-zh="帮助中心" data-lang-en="Help Center">Help Center</a></li>
+                        <li><a href="#" data-lang-zh="开发者合作" data-lang-en="Developer Cooperation">Developer Cooperation</a></li>
+                        <li><a href="#" data-lang-zh="广告合作" data-lang-en="Advertising">Advertising</a></li>
+                        <li><a href="#" data-lang-zh="问题反馈" data-lang-en="Feedback">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright" data-lang-zh="&copy; 2025 UGames. 保留所有权利" data-lang-en="&copy; 2025 UGames. All Rights Reserved">&copy; 2025 UGames. 保留所有权利</div>
+                <div class="footer-bottom-links">
+                    <a href="#" data-lang-zh="服务条款" data-lang-en="Terms of Service">Terms of Service</a>
+                    <a href="#" data-lang-zh="隐私" data-lang-en="Privacy">Privacy</a>
+                    <a href="#" data-lang-zh="Cookie" data-lang-en="Cookies">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript文件 -->
+    <script src="js/games-data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // 语言选择器功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const langToggle = document.getElementById('langToggle');
+            const langDropdown = document.getElementById('langDropdown');
+            const langOptions = document.querySelectorAll('.lang-option');
+            
+            // 切换语言下拉菜单
+            langToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                langDropdown.classList.toggle('active');
+            });
+            
+            // 点击选项切换语言
+            langOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    if (lang === 'zh') {
+                        window.location.href = 'index-zh.html';
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                });
+            });
+            
+            // 点击外部关闭下拉菜单
+            document.addEventListener('click', function(e) {
+                if (!langToggle.contains(e.target) && !langDropdown.contains(e.target)) {
+                    langDropdown.classList.remove('active');
+                }
+            });
+        });
+
+        // 初始化轮播图
+        function initCarousel() {
+            if (!window.GameDatabase || !window.GameDatabase.getNewestGames) {
+                console.error('GameDatabase或getNewestGames方法未找到');
+                return;
+            }
+            
+            const carouselContainer = document.querySelector('.carousel-container');
+            const carouselIndicators = document.querySelector('.carousel-indicators');
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
+            
+            if (!carouselContainer || !carouselIndicators) {
+                console.error('轮播图容器或指示器未找到');
+                return;
+            }
+            
+            // 获取最新的游戏
+            const newestGames = window.GameDatabase.getNewestGames(4); // 获取4个游戏以显示2页
+            if (!newestGames || newestGames.length === 0) {
+                carouselContainer.innerHTML = '<div class="error-message">No games available for carousel</div>';
+                return;
+            }
+            
+            // 清空加载指示器
+            carouselContainer.innerHTML = '';
+            
+            // 将游戏分组，每组2个
+            const gameGroups = [];
+            for (let i = 0; i < newestGames.length; i += 2) {
+                gameGroups.push(newestGames.slice(i, i + 2));
+            }
+            
+            // 为每组游戏创建轮播项
+            gameGroups.forEach((group, groupIndex) => {
+                // 创建轮播项
+                const carouselItem = document.createElement('div');
+                carouselItem.className = `carousel-item ${groupIndex === 0 ? 'active' : ''}`;
+                carouselItem.setAttribute('data-index', groupIndex);
+                
+                // 为组内的每个游戏创建slide
+                const slidesHTML = group.map(game => `
+                    <div class="game-slide">
+                        <img src="${game.thumbnailImage}" alt="${game.title}">
+                        <div class="hero-content">
+                            <h1 class="hero-title">${game.title}</h1>
+                            <div class="hero-meta">
+                                <span class="category-label">${game.category}</span>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>${game.rating}</span>
+                                </div>
+                            </div>
+                            <p class="hero-description">${game.description.split('<br>')[0]}</p>
+                            <a href="game.html?id=${game.id}" class="btn btn-primary">Start Game</a>
+                        </div>
+                    </div>
+                `).join('');
+                
+                carouselItem.innerHTML = slidesHTML;
+                
+                // 添加到轮播容器
+                carouselContainer.appendChild(carouselItem);
+                
+                // 创建指示器点
+                const indicator = document.createElement('div');
+                indicator.className = `carousel-indicator ${groupIndex === 0 ? 'active' : ''}`;
+                indicator.setAttribute('data-index', groupIndex);
+                
+                // 点击指示器切换到对应轮播项
+                indicator.addEventListener('click', () => {
+                    setActiveSlide(groupIndex);
+                });
+                
+                // 添加到指示器容器
+                carouselIndicators.appendChild(indicator);
+            });
+            
+            // 设置当前活动的轮播项
+            let currentIndex = 0;
+            
+            // 设置活动轮播项的函数
+            function setActiveSlide(index) {
+                // 确保索引在有效范围内
+                if (index < 0) index = gameGroups.length - 1;
+                if (index >= gameGroups.length) index = 0;
+                
+                // 更新当前索引
+                currentIndex = index;
+                
+                // 更新轮播项
+                document.querySelectorAll('.carousel-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                const activeItem = document.querySelector(`.carousel-item[data-index="${index}"]`);
+                if (activeItem) activeItem.classList.add('active');
+                
+                // 更新指示器
+                document.querySelectorAll('.carousel-indicator').forEach(indicator => {
+                    indicator.classList.remove('active');
+                });
+                const activeIndicator = document.querySelector(`.carousel-indicator[data-index="${index}"]`);
+                if (activeIndicator) activeIndicator.classList.add('active');
+            }
+            
+            // 添加控制按钮事件
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    setActiveSlide(currentIndex - 1);
+                });
+            }
+            
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    setActiveSlide(currentIndex + 1);
+                });
+            }
+            
+            // 自动轮播
+            let autoplayInterval = setInterval(() => {
+                setActiveSlide(currentIndex + 1);
+            }, 6000); // 每6秒切换一次，因为现在每页显示更多内容
+            
+            // 鼠标悬停时暂停自动轮播
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoplayInterval);
+            });
+            
+            // 鼠标离开时恢复自动轮播
+            carouselContainer.addEventListener('mouseleave', () => {
+                autoplayInterval = setInterval(() => {
+                    setActiveSlide(currentIndex + 1);
+                }, 6000);
+            });
+            
+            console.log('轮播图初始化完成，共加载了', newestGames.length, '个游戏');
+        }
+
+        // 游戏卡片动态加载
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('开始加载游戏卡片和轮播图');
+            
+            // 初始化轮播图
+            setTimeout(initCarousel, 300);
+            
+            // 清空加载指示器并加载游戏卡片
+            function loadGameCards(containerSelector, gamesFunction) {
+                const container = document.querySelector(containerSelector);
+                if (!container) {
+                    console.error('找不到容器:', containerSelector);
+                    return;
+                }
+                
+                // 清空现有内容
+                container.innerHTML = '';
+                
+                try {
+                    // 获取游戏数据并检查是否正确获取
+                    const games = gamesFunction();
+                    console.log('获取到的游戏数据:', games);
+                    
+                    if (!games || games.length === 0) {
+                        container.innerHTML = '<div class="no-games">No games available</div>';
+                        return;
+                    }
+                    
+                    // 添加游戏卡片
+                    games.forEach(game => {
+                        const cardHTML = window.GameDatabase.createGameCardHTML(game);
+                        container.innerHTML += cardHTML;
+                    });
+                    
+                    console.log(`已加载 ${games.length} 个游戏到 ${containerSelector}`);
+                } catch (error) {
+                    console.error('加载游戏时出错:', error);
+                    container.innerHTML = '<div class="error-message">Error loading games</div>';
+                }
+            }
+            
+            // 确保GameDatabase已加载
+            if (window.GameDatabase) {
+                // 加载热门游戏
+                try {
+                    loadGameCards('.section:nth-child(1) .games-grid', window.GameDatabase.getPopularGames);
+                } catch (error) {
+                    console.error('加载热门游戏时出错:', error);
+                    document.querySelector('.section:nth-child(1) .games-grid').innerHTML = 
+                        '<div class="error-message">Error loading popular games</div>';
+                }
+                
+                // 加载最新游戏
+                try {
+                    loadGameCards('.section:nth-child(2) .games-grid', window.GameDatabase.getAllGames);
+                } catch (error) {
+                    console.error('加载最新游戏时出错:', error);
+                    document.querySelector('.section:nth-child(2) .games-grid').innerHTML = 
+                        '<div class="error-message">Error loading new games</div>';
+                }
+                
+                // 分类标签筛选功能
+                const categoryTags = document.querySelectorAll('.category-tag');
+                categoryTags.forEach(tag => {
+                    tag.addEventListener('click', function() {
+                        // 移除其他标签的active类
+                        categoryTags.forEach(t => t.classList.remove('active'));
+                        
+                        // 为当前标签添加active类
+                        this.classList.add('active');
+                        
+                        // 获取分类名称
+                        const category = this.textContent.trim();
+                        
+                        // 加载对应分类的游戏
+                        try {
+                            const games = window.GameDatabase.getGamesByCategory(category);
+                            const container = document.querySelector('.section:nth-child(1) .games-grid');
+                            
+                            // 清空现有内容
+                            container.innerHTML = '';
+                            
+                            // 添加游戏卡片
+                            games.forEach(game => {
+                                container.innerHTML += window.GameDatabase.createGameCardHTML(game);
+                            });
+                            
+                            console.log(`已加载 ${games.length} 个 ${category} 分类的游戏`);
+                        } catch (error) {
+                            console.error(`加载 ${category} 分类游戏时出错:`, error);
+                        }
+                    });
+                });
+            } else {
+                console.error('GameDatabase对象未找到！请检查games-data.js是否正确加载。');
+                document.querySelectorAll('.games-grid').forEach(grid => {
+                    grid.innerHTML = '<div class="error-message">Error: Game database not loaded</div>';
+                });
+            }
+        });
+        
+        // 动态加载分类标签
+        function loadCategoryTags() {
+            if (window.GameDatabase && window.GameDatabase.getAllCategories) {
+                const categories = window.GameDatabase.getAllCategories();
+                const filterContainer = document.getElementById('categoryFilters');
+                
+                // 保留"All"标签，添加其他分类
+                if (categories.length > 0) {
+                    categories.forEach(category => {
+                        // 检查是否已存在该分类标签（避免重复添加）
+                        const existingTag = Array.from(filterContainer.querySelectorAll('.category-tag'))
+                            .find(tag => tag.textContent.trim() === category);
+                            
+                        if (!existingTag) {
+                            // 创建新标签并添加
+                            const newTag = document.createElement('span');
+                            newTag.className = 'category-tag';
+                            newTag.textContent = category;
+                            
+                            // 绑定点击事件
+                            newTag.addEventListener('click', function() {
+                                const allTags = document.querySelectorAll('.category-tag');
+                                allTags.forEach(t => t.classList.remove('active'));
+                                this.classList.add('active');
+                                
+                                // 获取分类名称
+                                const category = this.textContent.trim();
+                                
+                                // 加载对应分类的游戏
+                                try {
+                                    const games = window.GameDatabase.getGamesByCategory(category);
+                                    const container = document.querySelector('.section:nth-child(1) .games-grid');
+                                    
+                                    // 清空现有内容
+                                    container.innerHTML = '';
+                                    
+                                    // 添加游戏卡片
+                                    games.forEach(game => {
+                                        container.innerHTML += window.GameDatabase.createGameCardHTML(game);
+                                    });
+                                    
+                                    console.log(`已加载 ${games.length} 个 ${category} 分类的游戏`);
+                                } catch (error) {
+                                    console.error(`加载 ${category} 分类游戏时出错:`, error);
+                                }
+                            });
+                            
+                            filterContainer.appendChild(newTag);
+                        }
+                    });
+                    
+                    console.log(`已加载 ${categories.length} 个游戏分类标签`);
+                }
+            }
+        }
+        
+        // 在页面加载完成后执行分类标签加载
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(loadCategoryTags, 500); // 稍微延迟以确保游戏数据已加载
+        });
+    </script>
+</body>
+</html>

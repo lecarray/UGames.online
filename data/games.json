@@ -1,0 +1,171 @@
+{
+  "games": [
+    {
+      "id": "screw-out",
+      "title": "Screw Out: Bolts and Nuts",
+      "category": "Puzzle",
+      "rating": 8.8,
+      "releaseDate": "March 2023",
+      "description": "Screw Out: Bolts and Nuts is a classic puzzle game where your goal is to unscrew bolts from various shapes and sort them by color into the correct containers. Each level presents a new challenge that requires patience, logic, and careful planning to succeed.\n\nBe vigilant! The number of additional holes is limited, so you'll need to think a few steps ahead before making a move. Every action counts, and rushing in without a plan could leave you stuck! Once all the bolts are sorted correctly, you'll complete the level and move on to even trickier puzzles. Can you master every challenge and become the ultimate bolt-sorting expert?",
+      "thumbnailImage": "images/screw-out.jpg",
+      "gameIframeUrl": "https://www.crazygames.com/embed/screw-out-bolts-and-nuts",
+      "totalPlays": "42,519",
+      "favorites": "5,876",
+      "comments": "873",
+      "difficulty": "Medium",
+      "tags": ["Puzzle", "Brain Teaser", "Logic", "Strategy", "Casual", "HTML5"],
+      "controls": [
+        {
+          "icon": "mouse",
+          "description": "Use left mouse button to unscrew bolts"
+        }
+      ]
+    },
+    {
+      "id": "color-block",
+      "title": "Color Block",
+      "category": "Puzzle",
+      "rating": 8.5,
+      "releaseDate": "January 2023",
+      "description": "Color Block is an addictive puzzle game that challenges your color-matching skills. Arrange blocks of the same color to make them disappear and score points. The more blocks you clear in one move, the higher your score!",
+      "thumbnailImage": "images/Cups - Water Sort Puzzle.jpeg",
+      "gameIframeUrl": "https://www.crazygames.com/embed/space-waves",
+      "totalPlays": "38,215",
+      "favorites": "4,522",
+      "comments": "724",
+      "difficulty": "Easy",
+      "tags": ["Puzzle", "Color", "Casual", "Matching", "HTML5"],
+      "controls": [
+        {
+          "icon": "mouse",
+          "description": "Click and drag to match colors"
+        }
+      ]
+    },
+    {
+      "id": "slice-master",
+      "title": "Slice Master",
+      "category": "Puzzle",
+      "rating": 8.2,
+      "releaseDate": "February 2023",
+      "description": "Slice Master is a fast-paced slicing game where you cut various objects that fly across the screen. Test your reflexes and precision as you slice through fruits, vegetables, and special bonus items. Be careful to avoid slicing bombs!",
+      "thumbnailImage": "images/MatchVentures.jpeg",
+      "gameIframeUrl": "https://www.crazygames.com/embed/slice-master",
+      "totalPlays": "35,782",
+      "favorites": "4,125",
+      "comments": "652",
+      "difficulty": "Medium",
+      "tags": ["Puzzle", "Arcade", "Reflex", "Casual", "HTML5"],
+      "controls": [
+        {
+          "icon": "mouse",
+          "description": "Swipe or drag to slice objects"
+        }
+      ]
+    },
+    {
+      "id": "rope-rescue",
+      "title": "Rope Rescue",
+      "category": "Brain Teaser",
+      "rating": 8.9,
+      "releaseDate": "March 2023",
+      "description": "Rope Rescue is a challenging physics-based puzzle game where you must cut ropes at the right time to free trapped characters. Each level requires creative thinking and precise timing to solve the puzzles.",
+      "thumbnailImage": "images/CubeCraft Merge  Battle.jpeg",
+      "gameIframeUrl": "https://www.crazygames.com/embed/rope-rescue",
+      "totalPlays": "40,125",
+      "favorites": "5,230",
+      "comments": "815",
+      "difficulty": "Hard",
+      "tags": ["Brain Teaser", "Physics", "Puzzle", "Strategy", "HTML5"],
+      "controls": [
+        {
+          "icon": "mouse",
+          "description": "Click to cut ropes"
+        }
+      ]
+    },
+    {
+      "id": "teacher-simulator",
+      "title": "Teacher Simulator",
+      "category": "Simulation",
+      "rating": 7.8,
+      "releaseDate": "April 2023",
+      "description": "Teacher Simulator puts you in the shoes of a school teacher managing a classroom of students. Handle various situations, plan lessons, and try to maintain order while keeping students engaged and learning.",
+      "thumbnailImage": "images/Teacher Simulator.jpeg",
+      "gameIframeUrl": "https://www.crazygames.com/embed/teacher-simulator",
+      "totalPlays": "28,456",
+      "favorites": "3,178",
+      "comments": "542",
+      "difficulty": "Medium",
+      "tags": ["Simulation", "Education", "Role Playing", "Casual", "HTML5"],
+      "controls": [
+        {
+          "icon": "mouse",
+          "description": "Click to interact with students and objects"
+        },
+        {
+          "icon": "keyboard",
+          "description": "WASD keys to move around the classroom"
+        }
+      ]
+    },
+    {
+      "id": "Vortex-9",
+      "title": "Vortex 9",
+      "category": "Shooting",
+      "rating": 9.2,
+      "releaseDate": "April 2023",
+      "description": "Vortex 9 is a fast-paced shooter packed with stylish heroes, wild weapons, and chaotic battles. Choose from eight quirky characters like Mr. Goodboy or Jess Purrfect, and unleash insane firepower with unconventional guns and melee weapons. Dive into thrilling modes like Team Battle and Capture Point across stunning maps. Team up with friends and dominate the battlefield!",
+      "thumbnailImage": "images/Vortex 9.jpeg",
+      "gameIframeUrl": "https://www.crazygames.com/embed/vortex-9-ubs",
+      "totalPlays": "85,421",
+      "favorites": "12,543",
+      "comments": "2,187",
+      "difficulty": "Easy to Medium",
+      "tags": ["Shooting", "Action", "Multiplayer", "Battle", "HTML5"],
+      "controls": [
+        {
+          "icon": "mouse",
+          "description": "Left mouse button to shoot"
+        },
+        {
+          "icon": "keyboard",
+          "description": "WASD keys to move character"
+        },
+        {
+          "icon": "keyboard",
+          "description": "Space bar to jump or use special abilities"
+        },
+        {
+          "icon": "keyboard",
+          "description": "R key to reload weapon"
+        }
+      ]
+    },
+    {
+      "id": "feeling-arrow",
+      "title": "Feeling Arrow",
+      "category": "Arcade",
+      "rating": 8.7,
+      "releaseDate": "May 2023",
+      "description": "Feeling Arrow is an exciting archery-based arcade game that tests your timing and precision. Shoot arrows through moving targets, overcome obstacles, and unlock new levels as you progress. Perfect your aim and become the ultimate archer in this addictive game!",
+      "thumbnailImage": "images/feeling-arrow-cover.avif",
+      "gameIframeUrl": "https://www.crazygames.com/embed/feeling-arrow",
+      "totalPlays": "32,145",
+      "favorites": "4,782",
+      "comments": "643",
+      "difficulty": "Medium",
+      "tags": ["Arcade", "Archery", "Precision", "Casual", "HTML5"],
+      "controls": [
+        {
+          "icon": "mouse",
+          "description": "Click and hold to aim, release to shoot arrow"
+        },
+        {
+          "icon": "keyboard",
+          "description": "Space bar to reset aim"
+        }
+      ]
+    }
+  ]
+} 

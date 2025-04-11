@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Categories - UGames</title>
+    <!-- 引入样式文件 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <!-- 网站图标 -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="GamePortal categories page, browse different types of exciting games.">
+    <style>
+        /* 分类页面特定样式 */
+        .category-header {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(135deg, var(--main-purple), var(--secondary-purple));
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            margin-bottom: var(--spacing-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .category-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category-description {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .category-shape {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .shape-1 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--accent-purple);
+            top: -50px;
+            left: -50px;
+        }
+        
+        .shape-2 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--accent-pink);
+            bottom: -30px;
+            right: 30%;
+        }
+        
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--light-grey);
+            top: 20px;
+            right: 10%;
+        }
+        
+        .category-filters-container {
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .filter-groups {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-title {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--light-grey);
+            opacity: 0.9;
+        }
+        
+        .filter-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        
+        .sorting-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .games-count {
+            font-size: 0.9rem;
+            color: var(--light-grey);
+            opacity: 0.9;
+        }
+        
+        .sort-select {
+            padding: 0.5rem 1rem;
+            background-color: var(--main-purple);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-sm);
+            color: var(--light-grey);
+            font-size: 0.9rem;
+        }
+        
+        .sort-select:focus {
+            border-color: var(--accent-purple);
+        }
+        
+        .sort-select option {
+            background-color: var(--main-purple);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .page-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--main-purple);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .page-item:hover {
+            background-color: var(--secondary-purple);
+        }
+        
+        .page-item.active {
+            background-color: var(--accent-purple);
+        }
+        
+        .page-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">UGames</a>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#" class="nav-link">Action</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Adventure</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Strategy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">RPG</a></li>
+                </ul>
+                
+                <div class="nav-right">
+                    <div class="lang-selector">
+                        <a href="#" class="circle-icon language-toggle" id="langToggle">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <div class="lang-option" data-lang="zh">
+                                <img src="images/flag-cn.png" alt="中文" class="lang-flag">
+                                <span>中文</span>
+                            </div>
+                            <div class="lang-option" data-lang="en">
+                                <img src="images/flag-us.png" alt="English" class="lang-flag">
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="circle-icon search-icon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-user"></i>
+                        Login
+                    </a>
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 分类标题区域 -->
+        <div class="category-header">
+            <div class="category-shape shape-1"></div>
+            <div class="category-shape shape-2"></div>
+            <div class="category-shape shape-3"></div>
+            <div class="category-content">
+                <h1 class="category-title">Action Games</h1>
+                <p class="category-description">Exciting action games, experience intense combat and adventure</p>
+            </div>
+        </div>
+
+        <!-- 筛选器区域 -->
+        <div class="category-filters-container">
+            <div class="filter-groups">
+                <div class="filter-group">
+                    <h3 class="filter-title">Type</h3>
+                    <div class="filter-items">
+                        <span class="category-tag active">All</span>
+                        <span class="category-tag">Shooting</span>
+                        <span class="category-tag">Fighting</span>
+                        <span class="category-tag">Platform</span>
+                        <span class="category-tag">Survival</span>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3 class="filter-title">Style</h3>
+                    <div class="filter-items">
+                        <span class="category-tag">2D</span>
+                        <span class="category-tag">3D</span>
+                        <span class="category-tag">Pixel</span>
+                        <span class="category-tag">Cartoon</span>
+                        <span class="category-tag">Realistic</span>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3 class="filter-title">Difficulty</h3>
+                    <div class="filter-items">
+                        <span class="category-tag">Easy</span>
+                        <span class="category-tag">Medium</span>
+                        <span class="category-tag">Hard</span>
+                        <span class="category-tag">Very Hard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 排序选项 -->
+        <div class="sorting-options">
+            <div class="games-count">Found 48 action games</div>
+            <div class="sort-by">
+                <select class="sort-select">
+                    <option value="popular">Popularity</option>
+                    <option value="newest">Newest Release</option>
+                    <option value="rating">User Rating</option>
+                    <option value="name">Name Sort</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 游戏卡片网格 -->
+        <div class="games-grid">
+            <!-- 新添加的游戏 -->
+            <div class="game-card">
+                <div class="game-thumbnail">
+                    <a href="screw-out-detail.html">
+                        <img src="images/screw-out.jpg" alt="Screw Out: Bolts and Nuts">
+                        <div class="game-overlay">
+                            <span class="play-now">Play Now</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Screw Out: Bolts and Nuts</h3>
+                    <div class="game-meta">
+                        <span class="game-category">Puzzle</span>
+                        <span class="game-rating"><i class="fas fa-star"></i> 8.8</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 游戏卡片 1 -->
+            <div class="game-card">
+                <div class="game-thumbnail">
+                    <img src="images/space-warriors.jpg" alt="Space Warriors">
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Space Warriors</h3>
+                    <div class="game-meta">
+                        <span class="game-category">Action</span>
+                        <span class="game-rating">
+                            <i class="fas fa-star"></i> 4.7
+                        </span>
+                    </div>
+                    <a href="game-detail.html" class="btn btn-primary play-now">Play Now</a>
+                </div>
+            </div>
+
+            <!-- 游戏卡片 2 -->
+            <div class="game-card">
+                <div class="game-thumbnail">
+                    <img src="images/action-game1.jpg" alt="星际战士">
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">星际战士</h3>
+                    <div class="game-meta">
+                        <span class="game-category">Action</span>
+                        <span class="game-rating">
+                            <i class="fas fa-star"></i> 4.2
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-primary play-now">Play Now</a>
+                </div>
+            </div>
+
+            <!-- 游戏卡片 3 -->
+            <div class="game-card">
+                <div class="game-thumbnail">
+                    <img src="images/action-game2.jpg" alt="机甲战士">
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">机甲战士</h3>
+                    <div class="game-meta">
+                        <span class="game-category">Action</span>
+                        <span class="game-rating">
+                            <i class="fas fa-star"></i> 4.4
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-primary play-now">Play Now</a>
+                </div>
+            </div>
+
+            <!-- 游戏卡片 4 -->
+            <div class="game-card">
+                <div class="game-thumbnail">
+                    <img src="images/action-game3.jpg" alt="侠盗猎车">
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">侠盗猎车</h3>
+                    <div class="game-meta">
+                        <span class="game-category">Action</span>
+                        <span class="game-rating">
+                            <i class="fas fa-star"></i> 4.6
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-primary play-now">Play Now</a>
+                </div>
+            </div>
+
+            <!-- 重复游戏卡片以显示更多 -->
+            <div class="game-card">
+                <div class="game-thumbnail">
+                    <img src="images/action-game1.jpg" alt="太空射手">
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">太空射手</h3>
+                    <div class="game-meta">
+                        <span class="game-category">Action</span>
+                        <span class="game-rating">
+                            <i class="fas fa-star"></i> 4.1
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-primary play-now">Play Now</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-thumbnail">
+                    <img src="images/action-game2.jpg" alt="丧尸危机">
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">丧尸危机</h3>
+                    <div class="game-meta">
+                        <span class="game-category">Action</span>
+                        <span class="game-rating">
+                            <i class="fas fa-star"></i> 4.3
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-primary play-now">Play Now</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-thumbnail">
+                    <img src="images/action-game3.jpg" alt="忍者突袭">
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">忍者突袭</h3>
+                    <div class="game-meta">
+                        <span class="game-category">Action</span>
+                        <span class="game-rating">
+                            <i class="fas fa-star"></i> 4.5
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-primary play-now">Play Now</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-thumbnail">
+                    <img src="images/space-warriors.jpg" alt="格斗大师">
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">格斗大师</h3>
+                    <div class="game-meta">
+                        <span class="game-category">Fighting</span>
+                        <span class="game-rating">
+                            <i class="fas fa-star"></i> 4.8
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-primary play-now">Play Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+            <a href="#" class="page-item disabled"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="page-item active">1</a>
+            <a href="#" class="page-item">2</a>
+            <a href="#" class="page-item">3</a>
+            <a href="#" class="page-item">4</a>
+            <span class="page-item">...</span>
+            <a href="#" class="page-item">10</a>
+            <a href="#" class="page-item"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">UGames</h3>
+                    <p>Best Online Game Platform, Gather Various Exciting Games, Let You Enjoy The Game Fun.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Game Categories</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Action Games</a>
+                        <a href="#" class="footer-link">Adventure Games</a>
+                        <a href="#" class="footer-link">Strategy Games</a>
+                        <a href="#" class="footer-link">RPG Games</a>
+                        <a href="#" class="footer-link">Puzzle Games</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Help</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Frequently Asked Questions</a>
+                        <a href="#" class="footer-link">Contact Us</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Service Terms</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 UGames. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript文件 -->
+    <script src="js/main.js"></script>
+    <script src="js/games-data.js"></script>
+    <script src="js/games-generator.js"></script>
+</body>
+</html> 

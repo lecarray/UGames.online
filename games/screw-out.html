@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screw Out: Bolts and Nuts - 本地演示</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #1A102F;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        h1 {
+            color: #8A4FFF;
+            margin-bottom: 20px;
+        }
+        .game-preview {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .game-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .controls {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .controls h3 {
+            color: #8A4FFF;
+            margin-top: 0;
+        }
+        .btn {
+            background-color: #8A4FFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #BB86FC;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Screw Out: Bolts and Nuts</h1>
+        <img src="../images/screw-out.jpg" alt="Screw Out: Bolts and Nuts" class="game-preview">
+        <div class="game-description">
+            <p>Screw Out: Bolts and Nuts是一款经典的拼图游戏，你的目标是从各种形状中拧出螺栓，并按颜色将它们分类到正确的容器中。每个关卡都带来需要耐心、逻辑和仔细规划才能成功的新挑战。</p>
+            <p>要保持警惕！额外孔的数量有限，所以在行动前你需要提前考虑几步。每个动作都很重要，没有计划就冲进去可能会让你陷入困境！一旦所有螺栓都被正确分类，你将完成关卡并进入更加棘手的谜题。你能掌握每个挑战并成为终极螺栓分类专家吗？</p>
+        </div>
+        <div class="controls">
+            <h3>控制方式：</h3>
+            <p>使用鼠标左键拧开螺栓</p>
+        </div>
+        <button class="btn" onclick="window.parent.location.href='../index.html'">返回首页</button>
+    </div>
+</body>
+</html> 
