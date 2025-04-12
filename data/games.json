@@ -22,27 +22,6 @@
       ]
     },
     {
-      "id": "color-block",
-      "title": "Color Block",
-      "category": "Puzzle",
-      "rating": 8.5,
-      "releaseDate": "January 2023",
-      "description": "Color Block is an addictive puzzle game that challenges your color-matching skills. Arrange blocks of the same color to make them disappear and score points. The more blocks you clear in one move, the higher your score!",
-      "thumbnailImage": "images/Cups - Water Sort Puzzle.jpeg",
-      "gameIframeUrl": "https://www.crazygames.com/embed/space-waves",
-      "totalPlays": "38,215",
-      "favorites": "4,522",
-      "comments": "724",
-      "difficulty": "Easy",
-      "tags": ["Puzzle", "Color", "Casual", "Matching", "HTML5"],
-      "controls": [
-        {
-          "icon": "mouse",
-          "description": "Click and drag to match colors"
-        }
-      ]
-    },
-    {
       "id": "slice-master",
       "title": "Slice Master",
       "category": "Puzzle",
