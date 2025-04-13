@@ -44,7 +44,7 @@
 5. **游戏样例页面**
    - Space Warriors (games/space-warriors.html)
    - Screw Out: Bolts and Nuts (games/screw-out.html)
-   - Murder Mafia (games/murder-mafia.html)
+   - Murder Mafia  (games/murder-mafia.html)
 
 ### 样式文件
 
