@@ -1,0 +1,719 @@
+// New games to add to games.json
+
+[
+  {
+    "id": "survival-island",
+    "title": "Survival Island",
+    "category": "Survival",
+    "rating": 7.2,
+    "releaseDate": "March 2025",
+    "description": "Survive against the odds in Survival Island, where resource management and quick thinking are essential. Gather materials, craft tools, and build shelters to protect yourself from dangers that lurk around every corner.",
+    "thumbnailImage": "images/survival-island.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2024/unity2/survival-island/index-og.html",
+    "totalPlays": "39,205",
+    "favorites": "3,515",
+    "comments": "1,037",
+    "difficulty": "Hard",
+    "tags": ["Survival", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "WASD to move character"
+      },
+      {
+        "icon": "mouse",
+        "description": "Left click to interact, right click to use items"
+      }
+    ]
+  },
+  {
+    "id": "squid-shooter",
+    "title": "Squid Shooter",
+    "category": "Shooting",
+    "rating": 8.8,
+    "releaseDate": "March 2025",
+    "description": "Take aim and fire in Squid Shooter, an intense shooting game where precision and quick reflexes are key. Defeat waves of enemies, upgrade your weapons, and become the ultimate marksman in this action-packed game.",
+    "thumbnailImage": "images/squid-shooter.jpg",
+    "gameIframeUrl": "https://html5.gamedistribution.com/c0a72373f81d4096a325f9b0dde0d7b9/?gd_sdk_referrer_url=https://www.onlinegames.io/squid-shooter/",
+    "totalPlays": "67,036",
+    "favorites": "11,991",
+    "comments": "891",
+    "difficulty": "Hard",
+    "tags": ["Shooting", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Move mouse to aim, left click to shoot"
+      },
+      {
+        "icon": "keyboard",
+        "description": "WASD to move character"
+      }
+    ]
+  },
+  {
+    "id": "conquer-kingdoms",
+    "title": "Conquer Kingdoms",
+    "category": "Strategy",
+    "rating": 8.1,
+    "releaseDate": "March 2025",
+    "description": "Conquer Kingdoms challenges your strategic thinking as you plan and execute your moves carefully. Build, expand, and conquer in this engaging strategy game where every decision matters. Develop the perfect strategy to outmaneuver your opponents.",
+    "thumbnailImage": "images/conquer-kingdoms.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/unity/conquer-kingdoms/index-og.html",
+    "totalPlays": "81,152",
+    "favorites": "8,995",
+    "comments": "1,398",
+    "difficulty": "Easy to Medium",
+    "tags": ["Strategy", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to select units and issue commands"
+      },
+      {
+        "icon": "keyboard",
+        "description": "Number keys for quick selection"
+      }
+    ]
+  },
+  {
+    "id": "mahjong",
+    "title": "Mahjong",
+    "category": "Puzzle",
+    "rating": 8.8,
+    "releaseDate": "March 2025",
+    "description": "Mahjong is an engaging puzzle game that will test your problem-solving skills. Navigate through increasingly challenging levels using logic and strategy. With colorful graphics and intuitive controls, this game is easy to learn but difficult to master.",
+    "thumbnailImage": "images/mahjong.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/unity/mahjong/index-og.html",
+    "totalPlays": "37,330",
+    "favorites": "11,595",
+    "comments": "1,730",
+    "difficulty": "Easy to Medium",
+    "tags": ["Puzzle", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to select and move pieces"
+      }
+    ]
+  },
+  {
+    "id": "nuts-and-bolts-puzzle",
+    "title": "Nuts and Bolts Puzzle",
+    "category": "Puzzle",
+    "rating": 8.6,
+    "releaseDate": "March 2025",
+    "description": "Nuts and Bolts Puzzle is an engaging puzzle game that will test your problem-solving skills. Navigate through increasingly challenging levels using logic and strategy. With colorful graphics and intuitive controls, this game is easy to learn but difficult to master.",
+    "thumbnailImage": "images/nuts-and-bolts-puzzle.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/unity/nuts-and-bolts-puzzle/index-og.html",
+    "totalPlays": "80,236",
+    "favorites": "10,237",
+    "comments": "1,006",
+    "difficulty": "Medium to Hard",
+    "tags": ["Puzzle", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to select and move pieces"
+      }
+    ]
+  },
+  {
+    "id": "race-clicker-drift-max",
+    "title": "Race Clicker: Drift Max",
+    "category": "Clicker",
+    "rating": 7.4,
+    "releaseDate": "March 2025",
+    "description": "Race Clicker: Drift Max is an addictive incremental game where you click to earn resources and unlock new features. Watch as your empire grows with each click, and discover new strategies to optimize your progress.",
+    "thumbnailImage": "images/race-clicker-drift-max.jpg",
+    "gameIframeUrl": "https://html5.gamedistribution.com/a02de4821afa46c3b69dd95385c314db/?gd_sdk_referrer_url=https://www.onlinegames.io/race-clicker-drift-max/",
+    "totalPlays": "33,380",
+    "favorites": "5,512",
+    "comments": "310",
+    "difficulty": "Easy to Medium",
+    "tags": ["Clicker", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to earn points and resources"
+      }
+    ]
+  },
+  {
+    "id": "slope-rolling",
+    "title": "Slope Rolling",
+    "category": "Arcade",
+    "rating": 7.1,
+    "releaseDate": "March 2025",
+    "description": "Slope Rolling brings back the classic arcade feeling with simple yet addictive gameplay. Easy to pick up but hard to put down, this game will keep you entertained for hours as you try to beat your high score.",
+    "thumbnailImage": "images/slope-rolling.jpg",
+    "gameIframeUrl": "https://html5.gamedistribution.com/0022998ce3c54962be6ffe178229b168/?gd_sdk_referrer_url=https://www.onlinegames.io/slope-rolling/",
+    "totalPlays": "89,578",
+    "favorites": "11,070",
+    "comments": "938",
+    "difficulty": "Easy",
+    "tags": ["Arcade", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "Arrow keys to control"
+      },
+      {
+        "icon": "keyboard",
+        "description": "Space for action"
+      }
+    ]
+  },
+  {
+    "id": "ragdoll-football-2-players",
+    "title": "Ragdoll Football 2 Players",
+    "category": "Sports",
+    "rating": 7.5,
+    "releaseDate": "March 2025",
+    "description": "Compete for glory in Ragdoll Football 2 Players! This sports game offers realistic physics, intuitive controls, and exciting gameplay. Challenge yourself in various tournaments and become the champion in this addictive sports experience.",
+    "thumbnailImage": "images/ragdoll-football-2-players.jpg",
+    "gameIframeUrl": "https://html5.gamedistribution.com/d28ab37fbee149289d4c3d92106e2921/?gd_sdk_referrer_url=https://www.onlinegames.io/ragdoll-football-2-players/",
+    "totalPlays": "73,498",
+    "favorites": "7,359",
+    "comments": "522",
+    "difficulty": "Easy",
+    "tags": ["Sports", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "Arrow keys to move"
+      },
+      {
+        "icon": "keyboard",
+        "description": "Space to perform action"
+      }
+    ]
+  },
+  {
+    "id": "supermarket-simulator",
+    "title": "Supermarket Simulator",
+    "category": "Simulation",
+    "rating": 7.7,
+    "releaseDate": "March 2025",
+    "description": "Experience the thrills of Supermarket Simulator, a realistic simulation that puts you in control. Manage resources, make critical decisions, and watch as your efforts lead to success or failure. How well can you handle the challenges that come your way?",
+    "thumbnailImage": "images/supermarket-simulator.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/unity/supermarket-simulator/index-og.html",
+    "totalPlays": "21,250",
+    "favorites": "8,870",
+    "comments": "1,295",
+    "difficulty": "Hard",
+    "tags": ["Simulation", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to interact with objects and menus"
+      }
+    ]
+  },
+  {
+    "id": "infiltrating-the-airship",
+    "title": "Infiltrating the Airship",
+    "category": "Adventure",
+    "rating": 7.8,
+    "releaseDate": "March 2025",
+    "description": "Embark on an exciting journey in Infiltrating the Airship! Explore mysterious locations, solve intriguing puzzles, and make crucial decisions that affect the outcome of your adventure. With multiple paths and endings, every playthrough offers a unique experience.",
+    "thumbnailImage": "images/infiltrating-the-airship.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/flash/infiltrating-the-airship/index-og.html",
+    "totalPlays": "46,299",
+    "favorites": "4,048",
+    "comments": "1,596",
+    "difficulty": "Medium to Hard",
+    "tags": ["Adventure", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to interact with objects and characters"
+      }
+    ]
+  },
+  {
+    "id": "stealing-the-diamond",
+    "title": "Stealing the Diamond",
+    "category": "Adventure",
+    "rating": 8.5,
+    "releaseDate": "March 2025",
+    "description": "Embark on an exciting journey in Stealing the Diamond! Explore mysterious locations, solve intriguing puzzles, and make crucial decisions that affect the outcome of your adventure. With multiple paths and endings, every playthrough offers a unique experience.",
+    "thumbnailImage": "images/stealing-the-diamond.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/flash/stealing-the-diamond/index-og.html",
+    "totalPlays": "57,862",
+    "favorites": "11,690",
+    "comments": "783",
+    "difficulty": "Easy to Medium",
+    "tags": ["Adventure", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to interact with objects and characters"
+      }
+    ]
+  },
+  {
+    "id": "tank-arena",
+    "title": "Tank Arena",
+    "category": "Action",
+    "rating": 8.8,
+    "releaseDate": "March 2025",
+    "description": "Tank Arena puts your reflexes to the test in this fast-paced action game. Battle against enemies, dodge obstacles, and collect power-ups to progress through increasingly challenging levels. Can you make it to the end?",
+    "thumbnailImage": "images/tank-arena.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/construct/293/tank-arena/index-og.html",
+    "totalPlays": "38,184",
+    "favorites": "3,101",
+    "comments": "759",
+    "difficulty": "Medium to Hard",
+    "tags": ["Action", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "WASD or Arrow keys to move"
+      },
+      {
+        "icon": "mouse",
+        "description": "Left click to attack"
+      }
+    ]
+  },
+  {
+    "id": "escaping-the-prison",
+    "title": "Escaping the Prison",
+    "category": "Adventure",
+    "rating": 7.1,
+    "releaseDate": "March 2025",
+    "description": "Embark on an exciting journey in Escaping the Prison! Explore mysterious locations, solve intriguing puzzles, and make crucial decisions that affect the outcome of your adventure. With multiple paths and endings, every playthrough offers a unique experience.",
+    "thumbnailImage": "images/escaping-the-prison.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/flash/escaping-the-prison/index-og.html",
+    "totalPlays": "82,315",
+    "favorites": "10,375",
+    "comments": "882",
+    "difficulty": "Easy",
+    "tags": ["Adventure", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to interact with objects and characters"
+      }
+    ]
+  },
+  {
+    "id": "candy-bubble",
+    "title": "Candy Bubble",
+    "category": "Puzzle",
+    "rating": 8.6,
+    "releaseDate": "March 2025",
+    "description": "Candy Bubble is an engaging puzzle game that will test your problem-solving skills. Navigate through increasingly challenging levels using logic and strategy. With colorful graphics and intuitive controls, this game is easy to learn but difficult to master.",
+    "thumbnailImage": "images/candy-bubble.jpg",
+    "gameIframeUrl": "https://html5.gamedistribution.com/d9201aa9fdb24921b1b832c18762ddf1/?gd_sdk_referrer_url=https://www.onlinegames.io/candy-bubble/",
+    "totalPlays": "22,391",
+    "favorites": "3,935",
+    "comments": "1,721",
+    "difficulty": "Medium",
+    "tags": ["Puzzle", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to select and move pieces"
+      }
+    ]
+  },
+  {
+    "id": "golf-orbit",
+    "title": "Golf Orbit",
+    "category": "Sports",
+    "rating": 8.1,
+    "releaseDate": "March 2025",
+    "description": "Compete for glory in Golf Orbit! This sports game offers realistic physics, intuitive controls, and exciting gameplay. Challenge yourself in various tournaments and become the champion in this addictive sports experience.",
+    "thumbnailImage": "images/golf-orbit.jpg",
+    "gameIframeUrl": "https://html5.gamedistribution.com/02ff01e6e9f7451ba28d889a2a55eec9/?gd_sdk_referrer_url=https://www.onlinegames.io/golf-orbit/",
+    "totalPlays": "49,540",
+    "favorites": "3,991",
+    "comments": "878",
+    "difficulty": "Medium",
+    "tags": ["Sports", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "Arrow keys to move"
+      },
+      {
+        "icon": "keyboard",
+        "description": "Space to perform action"
+      }
+    ]
+  },
+  {
+    "id": "kings-io",
+    "title": "Kings io",
+    "category": "IO",
+    "rating": 8.1,
+    "releaseDate": "March 2025",
+    "description": "Join the multiplayer action in Kings io, a competitive IO game where you battle against players from around the world. Grow stronger, eliminate opponents, and climb the leaderboard in this addictive online experience.",
+    "thumbnailImage": "images/kings-io.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/construct/208/kings-io/index-og.html",
+    "totalPlays": "67,209",
+    "favorites": "9,387",
+    "comments": "974",
+    "difficulty": "Easy",
+    "tags": ["IO", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Move mouse to control direction"
+      },
+      {
+        "icon": "mouse",
+        "description": "Left click to use ability"
+      }
+    ]
+  },
+  {
+    "id": "breaking-the-bank",
+    "title": "Breaking the Bank",
+    "category": "Adventure",
+    "rating": 8.5,
+    "releaseDate": "March 2025",
+    "description": "Embark on an exciting journey in Breaking the Bank! Explore mysterious locations, solve intriguing puzzles, and make crucial decisions that affect the outcome of your adventure. With multiple paths and endings, every playthrough offers a unique experience.",
+    "thumbnailImage": "images/breaking-the-bank.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/flash/breaking-the-bank/index-og.html",
+    "totalPlays": "49,065",
+    "favorites": "4,398",
+    "comments": "489",
+    "difficulty": "Easy to Medium",
+    "tags": ["Adventure", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to interact with objects and characters"
+      }
+    ]
+  },
+  {
+    "id": "squid-race-simulator",
+    "title": "Squid Race Simulator",
+    "category": "Simulation",
+    "rating": 8.0,
+    "releaseDate": "March 2025",
+    "description": "Experience the thrills of Squid Race Simulator, a realistic simulation that puts you in control. Manage resources, make critical decisions, and watch as your efforts lead to success or failure. How well can you handle the challenges that come your way?",
+    "thumbnailImage": "images/squid-race-simulator.jpg",
+    "gameIframeUrl": "https://www.onlinegames.io/games/2021/unity3/squid-race-simulator/index.html",
+    "totalPlays": "67,756",
+    "favorites": "7,102",
+    "comments": "1,540",
+    "difficulty": "Hard",
+    "tags": ["Simulation", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to interact with objects and menus"
+      }
+    ]
+  },
+  {
+    "id": "spartahoppers",
+    "title": "SpartaHoppers",
+    "category": "Arcade",
+    "rating": 7.3,
+    "releaseDate": "March 2025",
+    "description": "SpartaHoppers brings back the classic arcade feeling with simple yet addictive gameplay. Easy to pick up but hard to put down, this game will keep you entertained for hours as you try to beat your high score.",
+    "thumbnailImage": "images/spartahoppers.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/construct/227/spartahoppers/index-og.html",
+    "totalPlays": "60,321",
+    "favorites": "8,054",
+    "comments": "544",
+    "difficulty": "Easy to Medium",
+    "tags": ["Arcade", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "Arrow keys to control"
+      },
+      {
+        "icon": "keyboard",
+        "description": "Space for action"
+      }
+    ]
+  },
+  {
+    "id": "vex-7",
+    "title": "Vex 7",
+    "category": "Platformer",
+    "rating": 7.7,
+    "releaseDate": "March 2025",
+    "description": "Jump, run, and overcome obstacles in Vex 7, a challenging platformer that tests your timing and precision. Navigate through carefully designed levels, avoid traps, and collect items as you make your way to the finish.",
+    "thumbnailImage": "images/vex-7.jpg",
+    "gameIframeUrl": "https://html5.gamedistribution.com/0c454c9562d249d28ba3a2b50564042c/?gd_sdk_referrer_url=https://www.onlinegames.io/vex-7/",
+    "totalPlays": "78,387",
+    "favorites": "6,294",
+    "comments": "531",
+    "difficulty": "Medium",
+    "tags": ["Platformer", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "Arrow keys to move"
+      },
+      {
+        "icon": "keyboard",
+        "description": "Space to jump"
+      }
+    ]
+  },
+  {
+    "id": "soccer-random-pro",
+    "title": "Soccer Random Pro",
+    "category": "Sports",
+    "rating": 7.1,
+    "releaseDate": "March 2025",
+    "description": "Compete for glory in Soccer Random Pro! This sports game offers realistic physics, intuitive controls, and exciting gameplay. Challenge yourself in various tournaments and become the champion in this addictive sports experience.",
+    "thumbnailImage": "images/soccer-random-pro.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2024/construct/303/soccer-random-pro/index-og.html",
+    "totalPlays": "45,809",
+    "favorites": "11,367",
+    "comments": "1,081",
+    "difficulty": "Medium",
+    "tags": ["Sports", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "Arrow keys to move"
+      },
+      {
+        "icon": "keyboard",
+        "description": "Space to perform action"
+      }
+    ]
+  },
+  {
+    "id": "squad-shooter",
+    "title": "Squad Shooter",
+    "category": "Shooting",
+    "rating": 8.8,
+    "releaseDate": "March 2025",
+    "description": "Take aim and fire in Squad Shooter, an intense shooting game where precision and quick reflexes are key. Defeat waves of enemies, upgrade your weapons, and become the ultimate marksman in this action-packed game.",
+    "thumbnailImage": "images/squad-shooter.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2024/unity2/squad-shooter/index-og.html",
+    "totalPlays": "83,078",
+    "favorites": "4,605",
+    "comments": "1,539",
+    "difficulty": "Medium",
+    "tags": ["Shooting", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Move mouse to aim, left click to shoot"
+      },
+      {
+        "icon": "keyboard",
+        "description": "WASD to move character"
+      }
+    ]
+  },
+  {
+    "id": "sprunki-warm-like-fire",
+    "title": "Sprunki Warm Like Fire",
+    "category": "Adventure",
+    "rating": 8.6,
+    "releaseDate": "March 2025",
+    "description": "Embark on an exciting journey in Sprunki Warm Like Fire! Explore mysterious locations, solve intriguing puzzles, and make crucial decisions that affect the outcome of your adventure. With multiple paths and endings, every playthrough offers a unique experience.",
+    "thumbnailImage": "images/sprunki-warm-like-fire.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/more/sprunki-warm-like-fire/index.html",
+    "totalPlays": "52,363",
+    "favorites": "9,738",
+    "comments": "1,131",
+    "difficulty": "Hard",
+    "tags": ["Adventure", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to interact with objects and characters"
+      }
+    ]
+  },
+  {
+    "id": "sudoku",
+    "title": "Sudoku",
+    "category": "Puzzle",
+    "rating": 7.3,
+    "releaseDate": "March 2025",
+    "description": "Sudoku is an engaging puzzle game that will test your problem-solving skills. Navigate through increasingly challenging levels using logic and strategy. With colorful graphics and intuitive controls, this game is easy to learn but difficult to master.",
+    "thumbnailImage": "images/sudoku.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/html/sudoku/index-og.html",
+    "totalPlays": "48,768",
+    "favorites": "5,476",
+    "comments": "1,669",
+    "difficulty": "Easy to Medium",
+    "tags": ["Puzzle", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to select and move pieces"
+      }
+    ]
+  },
+  {
+    "id": "obby-tower-parkour-climb",
+    "title": "Obby Tower Parkour Climb",
+    "category": "Platformer",
+    "rating": 8.8,
+    "releaseDate": "March 2025",
+    "description": "Jump, run, and overcome obstacles in Obby Tower Parkour Climb, a challenging platformer that tests your timing and precision. Navigate through carefully designed levels, avoid traps, and collect items as you make your way to the finish.",
+    "thumbnailImage": "images/obby-tower-parkour-climb.jpg",
+    "gameIframeUrl": "https://html5.gamedistribution.com/5532111b774e4ca18238b41c029617e0/?gd_sdk_referrer_url=https://www.onlinegames.io/obby-tower-parkour-climb/",
+    "totalPlays": "58,251",
+    "favorites": "8,014",
+    "comments": "555",
+    "difficulty": "Easy to Medium",
+    "tags": ["Platformer", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "Arrow keys to move"
+      },
+      {
+        "icon": "keyboard",
+        "description": "Space to jump"
+      }
+    ]
+  },
+  {
+    "id": "monster-survivors",
+    "title": "Monster Survivors",
+    "category": "Action",
+    "rating": 7.6,
+    "releaseDate": "March 2025",
+    "description": "Monster Survivors puts your reflexes to the test in this fast-paced action game. Battle against enemies, dodge obstacles, and collect power-ups to progress through increasingly challenging levels. Can you make it to the end?",
+    "thumbnailImage": "images/monster-survivors.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html",
+    "totalPlays": "49,990",
+    "favorites": "10,951",
+    "comments": "608",
+    "difficulty": "Easy to Medium",
+    "tags": ["Action", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "keyboard",
+        "description": "WASD or Arrow keys to move"
+      },
+      {
+        "icon": "mouse",
+        "description": "Left click to attack"
+      }
+    ]
+  },
+  {
+    "id": "find-it",
+    "title": "Find It",
+    "category": "Puzzle",
+    "rating": 8.0,
+    "releaseDate": "March 2025",
+    "description": "Find It is an engaging puzzle game that will test your problem-solving skills. Navigate through increasingly challenging levels using logic and strategy. With colorful graphics and intuitive controls, this game is easy to learn but difficult to master.",
+    "thumbnailImage": "images/find-it.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/unity/find-it/index-og.html",
+    "totalPlays": "84,835",
+    "favorites": "3,001",
+    "comments": "1,596",
+    "difficulty": "Medium to Hard",
+    "tags": ["Puzzle", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to select and move pieces"
+      }
+    ]
+  },
+  {
+    "id": "tile-match",
+    "title": "Tile Match",
+    "category": "Puzzle",
+    "rating": 7.9,
+    "releaseDate": "March 2025",
+    "description": "Tile Match is an engaging puzzle game that will test your problem-solving skills. Navigate through increasingly challenging levels using logic and strategy. With colorful graphics and intuitive controls, this game is easy to learn but difficult to master.",
+    "thumbnailImage": "images/tile-match.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/unity/tile-match/index-og.html",
+    "totalPlays": "74,689",
+    "favorites": "11,212",
+    "comments": "1,255",
+    "difficulty": "Easy to Medium",
+    "tags": ["Puzzle", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to select and move pieces"
+      }
+    ]
+  },
+  {
+    "id": "wordle",
+    "title": "Wordle",
+    "category": "Word",
+    "rating": 8.8,
+    "releaseDate": "March 2025",
+    "description": "Wordle challenges your vocabulary and word-finding skills. Create words, solve puzzles, and expand your lexicon in this educational yet entertaining game that's perfect for word lovers of all ages.",
+    "thumbnailImage": "images/wordle.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/html/wordle/index-og.html",
+    "totalPlays": "76,368",
+    "favorites": "5,671",
+    "comments": "1,005",
+    "difficulty": "Easy to Medium",
+    "tags": ["Word", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click letters to form words"
+      },
+      {
+        "icon": "keyboard",
+        "description": "Type letters to input words"
+      }
+    ]
+  },
+  {
+    "id": "voxel-world",
+    "title": "Voxel World",
+    "category": "Sandbox",
+    "rating": 7.1,
+    "releaseDate": "March 2025",
+    "description": "Unleash your creativity in Voxel World, a sandbox game where you can build, explore, and interact with a dynamic world. With no set objectives, you're free to play however you want and create your own adventures.",
+    "thumbnailImage": "images/voxel-world.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2025/unity/voxel-world/index-og.html",
+    "totalPlays": "52,143",
+    "favorites": "6,677",
+    "comments": "957",
+    "difficulty": "Medium",
+    "tags": ["Sandbox", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to interact with the world"
+      },
+      {
+        "icon": "keyboard",
+        "description": "WASD to move character"
+      }
+    ]
+  },
+  {
+    "id": "paper-planets",
+    "title": "Paper Planets",
+    "category": "Adventure",
+    "rating": 8.1,
+    "releaseDate": "March 2025",
+    "description": "Embark on an exciting journey in Paper Planets! Explore mysterious locations, solve intriguing puzzles, and make crucial decisions that affect the outcome of your adventure. With multiple paths and endings, every playthrough offers a unique experience.",
+    "thumbnailImage": "images/paper-planets.jpg",
+    "gameIframeUrl": "https://cloud.onlinegames.io/games/2023/unity3/paper-planets/index-og.html",
+    "totalPlays": "36,996",
+    "favorites": "6,252",
+    "comments": "1,176",
+    "difficulty": "Easy to Medium",
+    "tags": ["Adventure", "Casual", "HTML5"],
+    "controls": [
+      {
+        "icon": "mouse",
+        "description": "Click to interact with objects and characters"
+      }
+    ]
+  }
+]
